@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router";
+import Roots from "../Layouts/Roots";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <div className=" text-center text-4xl py-10">Hello World</div>,
+    Component: Roots,
+    children: [{}],
   },
 ]);

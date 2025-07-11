@@ -1,2 +1,15 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  /* for button or highlights */
+  --color-primary: #4caf50;
+  /* for price,tag and cta */
+  --color-secondary: #ffc107;
+  /* for price highlight price and warning */
+  --color-accent: #ff7043;
+  /* for bg */
+  --color-base-200: #f9fafb;
+}
