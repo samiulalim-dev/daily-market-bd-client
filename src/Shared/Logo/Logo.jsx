@@ -2,9 +2,9 @@ import { Link } from "react-router";
 
 const Logo = () => {
   return (
-    <Link to="/" className="flex  items-center gap-1 justify-center">
+    <Link to="/" className="flex  items-center  justify-center">
       <img
-        src="/logo.png"
+        src="/logo1.png"
         alt="DailyMarketBD"
         className=" h-12 w-12 md:h-15 md:w-15 object-contain"
       />
