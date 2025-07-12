@@ -8,7 +8,15 @@ import slider3 from "../../assets/slider3.webp";
 const Advertisements = () => {
   return (
     <div className=" w-11/12 mx-auto ">
-      <h1 className=" text-4xl font-bold pb-7">Advertisements</h1>
+      <div className="text-center mb-8">
+        <h2 className="text-3xl md:text-4xl font-bold text-primary">
+          Advertisements
+        </h2>
+        <p className="text-gray-600 mt-2 max-w-xl mx-auto">
+          Check out the latest deals and promotional offers from your nearby
+          vendors and markets.
+        </p>
+      </div>
       <div>
         <Carousel
           autoPlay={true}
