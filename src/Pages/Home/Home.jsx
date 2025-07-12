@@ -1,5 +1,8 @@
 import React from "react";
-import Banner from "../../Components/Navbar/Banner/Banner";
+
+import LatestMarketProduct from "../../Components/LatestMarketProduct/LatestMarketProduct";
+import Banner from "../../Components/Banner/Banner";
+import Advertisements from "../../Components/Advertisements/Advertisements";
 
 const Home = () => {
   return (
@@ -7,6 +10,14 @@ const Home = () => {
       {/* banner */}
       <div>
         <Banner></Banner>
+      </div>
+      {/* latest market product */}
+      <div className="w-11/12 mx-auto">
+        <LatestMarketProduct></LatestMarketProduct>
+      </div>
+      {/* advertisements */}
+      <div>
+        <Advertisements></Advertisements>
       </div>
     </div>
   );

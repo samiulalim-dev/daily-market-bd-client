@@ -11,7 +11,7 @@ const Navbar = () => {
             <div
               tabIndex={0}
               role="button"
-              className="btn md:pl-0 pr-8 md:pr-4  btn-ghost lg:hidden"
+              className="btn  pl-0 pr-8 md:pr-4  btn-ghost lg:hidden"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

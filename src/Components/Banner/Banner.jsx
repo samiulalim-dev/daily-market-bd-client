@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router";
-import bannerImg from "../../../assets/vegetable2.jpg";
+import bannerImg from "../../assets/vegetable2.jpg";
 const Banner = () => {
   return (
     <section
