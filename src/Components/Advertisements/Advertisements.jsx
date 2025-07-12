@@ -4,12 +4,13 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import slider1 from "../../assets/slider1.webp";
 import slider2 from "../../assets/slider2.webp";
 import slider3 from "../../assets/slider3.webp";
-
+import { FaBullhorn } from "react-icons/fa";
 const Advertisements = () => {
   return (
     <div className=" w-11/12 mx-auto ">
       <div className="text-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-4 flex items-center justify-center gap-2">
+          <FaBullhorn className="text-primary" />
           Advertisements
         </h2>
         <p className="text-gray-600 mt-2 max-w-xl mx-auto">

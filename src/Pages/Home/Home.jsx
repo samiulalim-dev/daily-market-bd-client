@@ -4,6 +4,7 @@ import LatestMarketProduct from "../../Components/LatestMarketProduct/LatestMark
 import Banner from "../../Components/Banner/Banner";
 import Advertisements from "../../Components/Advertisements/Advertisements";
 import UpcomingMarketDays from "../../Components/UpcomingMarketDays/UpcomingMarketDays";
+import HowItWorks from "../../Components/HowItWorks/HowItWorks";
 
 const Home = () => {
   return (
@@ -23,6 +24,10 @@ const Home = () => {
       {/* upcoming market days */}
       <div>
         <UpcomingMarketDays></UpcomingMarketDays>
+      </div>
+      {/* how it works */}
+      <div>
+        <HowItWorks></HowItWorks>
       </div>
     </div>
   );

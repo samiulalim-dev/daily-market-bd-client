@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FaShoppingBasket } from "react-icons/fa";
 const LatestMarketProduct = () => {
   return (
     <div className=" my-7 md:my-12">
@@ -10,7 +11,8 @@ const LatestMarketProduct = () => {
         viewport={{ once: true }}
       >
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-green-700">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-4 flex items-center justify-center gap-2">
+            <FaShoppingBasket className="text-green-700" />
             Latest Market Products
           </h2>
           <p className="text-gray-600 mt-2 max-w-xl mx-auto">

@@ -122,7 +122,7 @@ const UpcomingMarketDays = () => {
   };
 
   return (
-    <section className="py-12 px-4 md:px-10 bg-base-100">
+    <section className="py-12 px-4 md:px-10 ">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -130,8 +130,9 @@ const UpcomingMarketDays = () => {
         viewport={{ once: true }}
         className="max-w-6xl mx-auto text-center"
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
-          📅 Upcoming Market Days
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-4 flex items-center justify-center gap-2">
+          <FaCalendarAlt className="text-primary hidden sm:block"></FaCalendarAlt>{" "}
+          Upcoming Market Days
         </h2>
         <p className="text-gray-600 mb-10">
           Plan your shopping by knowing when and where local markets open!
