@@ -1,8 +1,6 @@
-import React from "react";
 import Logo from "../../Shared/Logo/Logo";
 import { Link, NavLink } from "react-router";
 import { FaSignInAlt } from "react-icons/fa";
-
 const Navbar = () => {
   return (
     <div className="bg-base-100 shadow-sm">

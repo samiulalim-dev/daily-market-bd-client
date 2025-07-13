@@ -7,6 +7,7 @@ import { router } from "./Routes/Routes.jsx";
 
 import "aos/dist/aos.css";
 import Aos from "aos";
+import AuthProvider from "./AuthProvider/AuthProvider.jsx";
 
 Aos.init({
   duration: 1000,
@@ -14,6 +15,9 @@ Aos.init({
 });
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+      <Toaster position="top-center" />
+    </AuthProvider>
   </StrictMode>
 );

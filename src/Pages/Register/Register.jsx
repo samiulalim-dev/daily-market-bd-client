@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { use, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash, FaUserPlus } from "react-icons/fa";
 import { Link } from "react-router";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
   const {
@@ -11,8 +13,40 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const [seePassword, setSeePassword] = useState(true);
+  const [userProfilePic, setUserProfilePic] = useState("");
+  //   console.log(userProfilePic);
+  const { createUser } = use(AuthContext);
+  const handleChangeImage = (e) => {
+    const file = e.target.files[0];
+    // console.log(file);
+    const formData = new FormData();
+    formData.append("image", file);
+    // console.log(formData);
+    axios
+      .post(
+        `https://api.imgbb.com/1/upload?key=${
+          import.meta.env.VITE_upload_image_api_key
+        }`,
+        formData
+      )
+      .then((res) => {
+        setUserProfilePic(res.data.data.url);
+      });
+  };
   const onSubmit = (data) => {
-    console.log("User Data:", data);
+    // console.log("User Data:", data);
+    console.log(data.email, data.password, data.name, userProfilePic);
+    const email = data.email;
+    const password = data.password;
+    const name = data.name;
+    const profilePic = userProfilePic;
+    createUser(email, password)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     // 👉 এখানে Firebase/Auth API বা backend POST করো
     // ✅ data.name, data.email, data.password, data.photo
     reset();
@@ -45,6 +79,7 @@ const Register = () => {
             <label className="block text-gray-600">Photo</label>
             <input
               type="file"
+              onChange={handleChangeImage}
               placeholder="Upload Your image"
               className="w-full px-4 py-3 rounded-md border border-gray-300 text-gray-800 "
             />
@@ -77,6 +112,11 @@ const Register = () => {
                 minLength: {
                   value: 6,
                   message: "Minimum 6 characters required",
+                },
+                pattern: {
+                  value: /^(?=.*[a-z])(?=.*[A-Z]).+$/,
+                  message:
+                    "Password Must be at least one uppercase or lowercase letter.",
                 },
               })}
               placeholder="••••••••"

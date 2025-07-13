@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { FaEye, FaEyeSlash, FaSignInAlt } from "react-icons/fa";
 import { Link } from "react-router";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const {
@@ -12,14 +14,26 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const [seePassword, setSeePassword] = useState(true);
+  const { loginUser } = use(AuthContext);
   const onSubmit = (data) => {
-    console.log("Login Data:", data);
+    // console.log("Login Data:", data);
+    const email = data.email;
+    const password = data.password;
+    loginUser(email, password)
+      .then((result) => {
+        console.log(result);
+        toast.success("login successfully completed");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // console.log(email, password);
     // 👉 Firebase or API Call here
     reset();
   };
 
   return (
-    <div className="my-10 md:my-12 flex items-center justify-center px-4 ">
+    <div className="my-8 flex items-center justify-center px-4 ">
       <div className="card bg-base-100 my-10 w-full max-w-sm mx-auto shadow-2xl">
         <div className="card-body">
           <h1 className="text-center text-2xl font-bold flex items-center justify-center gap-2 text-primary">
