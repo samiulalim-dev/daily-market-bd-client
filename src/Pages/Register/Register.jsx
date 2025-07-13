@@ -1,0 +1,155 @@
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { FaEye, FaEyeSlash, FaUserPlus } from "react-icons/fa";
+import { Link } from "react-router";
+
+const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const [seePassword, setSeePassword] = useState(true);
+  const onSubmit = (data) => {
+    console.log("User Data:", data);
+    // 👉 এখানে Firebase/Auth API বা backend POST করো
+    // ✅ data.name, data.email, data.password, data.photo
+    reset();
+  };
+
+  return (
+    <section className="my-10 md:my-12 flex items-center justify-center  px-4">
+      <div className="w-full max-w-md  rounded-xl shadow-2xl p-8">
+        <h2 className="text-2xl font-bold text-center text-green-700 flex items-center justify-center gap-2 mb-3">
+          <FaUserPlus /> Register New Account
+        </h2>
+
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
+          {/* Name */}
+          <div>
+            <label className="block mb-1 font-medium"> Name</label>
+            <input
+              type="text"
+              {...register("name", { required: "Name is required" })}
+              placeholder="Your Name"
+              className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-green-400"
+            />
+            {errors.name && (
+              <p className="text-red-500 text-sm">{errors.name.message}</p>
+            )}
+          </div>
+
+          {/* Photo */}
+          <div className="space-y-1 text-sm">
+            <label className="block text-gray-600">Photo</label>
+            <input
+              type="file"
+              placeholder="Upload Your image"
+              className="w-full px-4 py-3 rounded-md border border-gray-300 text-gray-800 "
+            />
+            {errors.name?.type === "required" && (
+              <span className=" text-red-500">Photo is Required</span>
+            )}
+          </div>
+
+          {/* Email */}
+          <div>
+            <label className="block mb-1 font-medium">Email Address</label>
+            <input
+              type="email"
+              {...register("email", { required: "Email is required" })}
+              placeholder="Enter Your Email"
+              className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-green-400"
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm">{errors.email.message}</p>
+            )}
+          </div>
+
+          {/* Password */}
+          <div className="relative">
+            <label className="block mb-1 font-medium">Password</label>
+            <input
+              type={seePassword ? "password" : "text"}
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Minimum 6 characters required",
+                },
+              })}
+              placeholder="••••••••"
+              className="w-full  border px-4 py-2 rounded-lg focus:ring-2 focus:ring-green-400"
+            />
+            <button
+              onClick={() => setSeePassword(!seePassword)}
+              type="button"
+              className=" absolute cursor-pointer top-10 right-4"
+            >
+              {seePassword ? (
+                <FaEye size={20}></FaEye>
+              ) : (
+                <FaEyeSlash size={20}></FaEyeSlash>
+              )}
+            </button>
+            {errors.password && (
+              <p className="text-red-500 text-sm">{errors.password.message}</p>
+            )}
+          </div>
+
+          {/* Submit */}
+          <button
+            type="submit"
+            className="w-full py-2 btn btn-primary text-white rounded-lg hover:bg-green-700 transition"
+          >
+            Register
+          </button>
+        </form>
+
+        <p className=" mt-2 ">
+          Already have an account ? Please{" "}
+          <Link to="/logIn" className="text-sm underline text-blue-600 ">
+            Login
+          </Link>
+        </p>
+
+        <div className="divider h-0">Or</div>
+
+        {/* Google */}
+        <button className="btn bg-white w-full text-black border-[#e5e5e5]">
+          <svg
+            aria-label="Google logo"
+            width="16"
+            height="16"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <g>
+              <path d="m0 0H512V512H0" fill="#fff"></path>
+              <path
+                fill="#34a853"
+                d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"
+              ></path>
+              <path
+                fill="#4285f4"
+                d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"
+              ></path>
+              <path
+                fill="#fbbc02"
+                d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"
+              ></path>
+              <path
+                fill="#ea4335"
+                d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"
+              ></path>
+            </g>
+          </svg>
+          Register with Google
+        </button>
+      </div>
+    </section>
+  );
+};
+
+export default Register;

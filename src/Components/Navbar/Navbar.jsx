@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../../Shared/Logo/Logo";
 import { Link, NavLink } from "react-router";
+import { FaSignInAlt } from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -91,7 +92,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn btn-primary text-white">Log in</Link>
+          <Link to="/logIn" className="btn btn-primary text-white">
+            <FaSignInAlt className="text-white" /> Log in
+          </Link>
         </div>
       </div>
     </div>
