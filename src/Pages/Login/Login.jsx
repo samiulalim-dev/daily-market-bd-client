@@ -2,7 +2,7 @@ import React, { use, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { FaEye, FaEyeSlash, FaSignInAlt } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 
@@ -15,6 +15,7 @@ const Login = () => {
   } = useForm();
   const [seePassword, setSeePassword] = useState(true);
   const { loginUser } = use(AuthContext);
+  const navigate = useNavigate();
   const onSubmit = (data) => {
     // console.log("Login Data:", data);
     const email = data.email;
@@ -23,6 +24,7 @@ const Login = () => {
       .then((result) => {
         console.log(result);
         toast.success("login successfully completed");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);

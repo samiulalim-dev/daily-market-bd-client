@@ -2,8 +2,9 @@ import axios from "axios";
 import React, { use, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash, FaUserPlus } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const {
@@ -15,7 +16,8 @@ const Register = () => {
   const [seePassword, setSeePassword] = useState(true);
   const [userProfilePic, setUserProfilePic] = useState("");
   //   console.log(userProfilePic);
-  const { createUser } = use(AuthContext);
+  const navigate = useNavigate();
+  const { createUser, updateUser, setUser } = use(AuthContext);
   const handleChangeImage = (e) => {
     const file = e.target.files[0];
     // console.log(file);
@@ -35,14 +37,24 @@ const Register = () => {
   };
   const onSubmit = (data) => {
     // console.log("User Data:", data);
-    console.log(data.email, data.password, data.name, userProfilePic);
+    // console.log(data.email, data.password, data.name, userProfilePic);
     const email = data.email;
     const password = data.password;
     const name = data.name;
     const profilePic = userProfilePic;
     createUser(email, password)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
+        updateUser(name, profilePic)
+          .then(() => {
+            console.log("update user name and photo");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        setUser({ ...result.user, displayName: name, photoURL: profilePic });
+        toast.success("User created successfully!");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);

@@ -1,7 +1,24 @@
 import Logo from "../../Shared/Logo/Logo";
 import { Link, NavLink } from "react-router";
-import { FaSignInAlt } from "react-icons/fa";
+import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
+import { use } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { div } from "framer-motion/client";
+import { ImExit } from "react-icons/im";
+import Loading from "../../Shared/Logo/Loading/Loading";
+import { toast } from "react-toastify";
 const Navbar = () => {
+  const { user, logOut } = use(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Sign-out successful");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="bg-base-100 shadow-sm">
       <div className="navbar w-11/12 mx-auto ">
@@ -90,9 +107,30 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/logIn" className="btn btn-primary text-white">
-            <FaSignInAlt className="text-white" /> Log in
-          </Link>
+          {user ? (
+            <div className="flex items-center gap-3">
+              {/* Avatar */}
+              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-600">
+                <img
+                  src={user?.photoURL || "/avatar.png"} // fallback image
+                  alt="User Avatar"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Logout Button */}
+              <button
+                onClick={handleLogOut}
+                className="btn btn-primary text-white flex items-center gap-2"
+              >
+                <ImExit className="text-white text-lg" /> Log Out
+              </button>
+            </div>
+          ) : (
+            <Link to="/logIn" className="btn btn-primary text-white">
+              <FaSignInAlt className="text-white" /> Log in
+            </Link>
+          )}
         </div>
       </div>
     </div>
