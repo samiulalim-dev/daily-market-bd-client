@@ -2,7 +2,7 @@ import React, { use, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { FaEye, FaEyeSlash, FaSignInAlt } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 
@@ -13,9 +13,12 @@ const Login = () => {
     reset,
     formState: { errors },
   } = useForm();
+
   const [seePassword, setSeePassword] = useState(true);
-  const { loginUser } = use(AuthContext);
+  const { loginUser, googleSignIn } = use(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const onSubmit = (data) => {
     // console.log("Login Data:", data);
     const email = data.email;
@@ -24,14 +27,28 @@ const Login = () => {
       .then((result) => {
         console.log(result);
         toast.success("login successfully completed");
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
+        toast.warn(
+          "email or password is not valid.please enter valid email or password."
+        );
       });
     // console.log(email, password);
     // 👉 Firebase or API Call here
     reset();
+  };
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result);
+        toast.success("login successfully completed");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -112,7 +129,10 @@ const Login = () => {
           <div className="divider h-0 my-3">Or</div>
 
           {/* Google Login */}
-          <button className="btn bg-white text-black border-[#e5e5e5] w-full">
+          <button
+            onClick={handleGoogleSignIn}
+            className="btn bg-white text-black border-[#e5e5e5] w-full"
+          >
             <svg
               aria-label="Google logo"
               width="16"

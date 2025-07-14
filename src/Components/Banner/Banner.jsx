@@ -23,7 +23,7 @@ const Banner = () => {
           <Link to="/allProducts" className="btn text-white bg-primary">
             Explore Products
           </Link>
-          <Link to="/signUp" className="btn btn-outline  hover:bg-secondary">
+          <Link to="/register" className="btn btn-outline  hover:bg-secondary">
             Sign Up
           </Link>
         </div>

@@ -9,7 +9,54 @@ import Loading from "../../Shared/Logo/Loading/Loading";
 import { toast } from "react-toastify";
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
-
+  const sharedNavbar = (
+    <>
+      <li>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "text-green-700 underline" : "text-black"
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/allProducts"
+          className={({ isActive }) =>
+            isActive ? "text-green-700 underline" : "text-black"
+          }
+        >
+          All Product
+        </NavLink>
+      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                isActive ? "text-green-700 underline" : "text-black"
+              }
+            >
+              Dashboard
+            </NavLink>
+          </li>
+        </>
+      )}
+      <li>
+        <NavLink
+          to="/contacts"
+          className={({ isActive }) =>
+            isActive ? "text-green-700 underline" : "text-black"
+          }
+        >
+          Contact
+        </NavLink>
+      </li>
+    </>
+  );
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -73,58 +120,56 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive ? "text-green-700 underline" : "text-black"
-                }
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/allProducts"
-                className={({ isActive }) =>
-                  isActive ? "text-green-700 underline" : "text-black"
-                }
-              >
-                All Product
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/contacts"
-                className={({ isActive }) =>
-                  isActive ? "text-green-700 underline" : "text-black"
-                }
-              >
-                Contact
-              </NavLink>
-            </li>
-          </ul>
+          <ul className="menu menu-horizontal px-1">{sharedNavbar}</ul>
         </div>
         <div className="navbar-end">
           {user ? (
-            <div className="flex items-center gap-3">
-              {/* Avatar */}
-              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-600">
-                <img
-                  src={user?.photoURL || "/avatar.png"} // fallback image
-                  alt="User Avatar"
-                  className="w-full h-full object-cover"
-                />
+            <div>
+              <div className="dropdown block sm:hidden dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src={user?.photoURL || "/avatar.png"}
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                >
+                  <li>
+                    <button
+                      onClick={handleLogOut}
+                      className="btn btn-primary text-white flex items-center gap-2"
+                    >
+                      <ImExit className="text-white text-lg" /> Log Out
+                    </button>
+                  </li>
+                </ul>
               </div>
+              <div className="sm:flex hidden  items-center gap-3">
+                {/* Avatar */}
+                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-600">
+                  <img
+                    src={user?.photoURL || "/avatar.png"} // fallback image
+                    alt="User Avatar"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
-              {/* Logout Button */}
-              <button
-                onClick={handleLogOut}
-                className="btn btn-primary text-white flex items-center gap-2"
-              >
-                <ImExit className="text-white text-lg" /> Log Out
-              </button>
+                {/* Logout Button */}
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-primary text-white flex items-center gap-2"
+                >
+                  <ImExit className="text-white text-lg" /> Log Out
+                </button>
+              </div>
             </div>
           ) : (
             <Link to="/logIn" className="btn btn-primary text-white">

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { use, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash, FaUserPlus } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 
@@ -17,7 +17,9 @@ const Register = () => {
   const [userProfilePic, setUserProfilePic] = useState("");
   //   console.log(userProfilePic);
   const navigate = useNavigate();
-  const { createUser, updateUser, setUser } = use(AuthContext);
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const { createUser, updateUser, setUser, googleSignIn } = use(AuthContext);
   const handleChangeImage = (e) => {
     const file = e.target.files[0];
     // console.log(file);
@@ -54,7 +56,7 @@ const Register = () => {
           });
         setUser({ ...result.user, displayName: name, photoURL: profilePic });
         toast.success("User created successfully!");
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -62,6 +64,18 @@ const Register = () => {
     // 👉 এখানে Firebase/Auth API বা backend POST করো
     // ✅ data.name, data.email, data.password, data.photo
     reset();
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result);
+        toast.success("login successfully completed");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -169,7 +183,10 @@ const Register = () => {
         <div className="divider h-0">Or</div>
 
         {/* Google */}
-        <button className="btn bg-white w-full text-black border-[#e5e5e5]">
+        <button
+          onClick={handleGoogleSignIn}
+          className="btn bg-white w-full text-black border-[#e5e5e5]"
+        >
           <svg
             aria-label="Google logo"
             width="16"
