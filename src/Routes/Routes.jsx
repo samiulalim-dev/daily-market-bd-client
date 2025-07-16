@@ -6,6 +6,7 @@ import Register from "../Pages/Register/Register";
 import Error from "../Shared/Error/Error";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome.jsx";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -33,5 +34,15 @@ export const router = createBrowserRouter([
         <Dashboard></Dashboard>
       </PrivateRoute>
     ),
+    children: [
+      {
+        index: true,
+        Component: DashboardHome,
+      },
+      {
+        path: "home",
+        Component: DashboardHome,
+      },
+    ],
   },
 ]);

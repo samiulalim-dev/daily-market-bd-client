@@ -5,6 +5,7 @@ import { FaEye, FaEyeSlash, FaSignInAlt } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
+import useAxios from "../../Hooks/useAxios/useAxios";
 
 const Login = () => {
   const {
@@ -18,6 +19,7 @@ const Login = () => {
   const { loginUser, googleSignIn } = use(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const axiosInstance = useAxios();
   const from = location.state?.from?.pathname || "/";
   const onSubmit = (data) => {
     // console.log("Login Data:", data);
@@ -43,6 +45,20 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         console.log(result);
+        axiosInstance
+          .post("/users", {
+            name: result.user.displayName,
+            email: result.user.email,
+            photo: result.user.photoURL,
+            role: "user",
+            createdAt: new Date(),
+          })
+          .then((res) => {
+            console.log("user save to db", res.data);
+          })
+          .catch((error) => {
+            console.log("Failed to save user to DB:", error);
+          });
         toast.success("login successfully completed");
         navigate(from, { replace: true });
       })
