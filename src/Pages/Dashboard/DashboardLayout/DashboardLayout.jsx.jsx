@@ -134,7 +134,7 @@ const DashboardLayout = () => {
         <>
           <li>
             <NavLink
-              to="/dashboard/all-users"
+              to="/dashboard/home"
               className={({ isActive }) =>
                 isActive ? "underline text-lime-600" : "text-black"
               }

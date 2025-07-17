@@ -1,16 +1,16 @@
 import { use, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import useAxios from "../useAxios/useAxios";
+import useAxiosSecure from "../AxiosSecure/useAxiosSecure";
 
 const useUserRole = () => {
   const { user, loading } = use(AuthContext);
   const [role, setRole] = useState(null);
   const [isRoleLoading, setIsRoleLoading] = useState(true);
-  const axiosInstance = useAxios();
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     if (user?.email) {
-      axiosInstance
+      axiosSecure
         .get(`/users/${user.email}`)
         .then((res) => {
           setRole(res.data.role);

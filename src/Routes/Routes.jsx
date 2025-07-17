@@ -6,7 +6,10 @@ import Register from "../Pages/Register/Register";
 import Error from "../Shared/Error/Error";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Dashboard from "../Pages/Dashboard/Dashboard";
-import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome.jsx";
+import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
+import AdminPrivateRoute from "../PrivateRoute/AdminPrivateRoute/AdminPrivateRoute";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +45,14 @@ export const router = createBrowserRouter([
       {
         path: "home",
         Component: DashboardHome,
+      },
+      {
+        path: "allUsers",
+        element: (
+          <AdminPrivateRoute>
+            <AllUsers></AllUsers>
+          </AdminPrivateRoute>
+        ),
       },
     ],
   },

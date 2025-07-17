@@ -1,9 +1,10 @@
 import React from "react";
 import PriceTrends from "../PriceTrends/PriceTrends";
 import MyProduct from "../MyProduct/MyProduct";
-import AllUser from "../AllUser/AllUser";
+
 import Loading from "../../../Shared/Logo/Loading/Loading";
 import useUserRole from "../../../Hooks/useUserRole/useUserRole";
+import AllUsers from "../AllUsers/AllUsers";
 
 const DashboardHome = () => {
   const { role, isRoleLoading } = useUserRole();
@@ -12,7 +13,7 @@ const DashboardHome = () => {
     return <Loading></Loading>;
   }
   if (role === "admin") {
-    return <AllUser></AllUser>;
+    return <AllUsers></AllUsers>;
   }
   if (role === "vendor") {
     return <MyProduct></MyProduct>;
