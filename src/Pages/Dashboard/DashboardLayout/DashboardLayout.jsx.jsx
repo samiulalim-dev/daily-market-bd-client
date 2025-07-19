@@ -81,7 +81,7 @@ const DashboardLayout = () => {
         </>
       )}
 
-      {/* ✅ Vendor Dashboard NavLinks */}
+      {/*  Vendor Dashboard NavLinks */}
       {!isRoleLoading && role === "vendor" && (
         <>
           <li>
@@ -97,7 +97,7 @@ const DashboardLayout = () => {
           </li>
           <li>
             <NavLink
-              to="/dashboard/add-product"
+              to="/dashboard/add-products"
               className={({ isActive }) =>
                 isActive ? "underline text-lime-600" : "text-black"
               }
@@ -181,7 +181,7 @@ const DashboardLayout = () => {
   }
   return (
     <div>
-      <div className="drawer lg:drawer-open">
+      <div className="drawer  lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
         <div className="drawer-content  ">
@@ -269,7 +269,6 @@ const DashboardLayout = () => {
 
               {/* Page content here */}
             </div>
-
             <div className="drawer-side">
               <label
                 htmlFor="my-drawer-3"
@@ -286,14 +285,14 @@ const DashboardLayout = () => {
           {/* Page content here */}
           <Outlet></Outlet>
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side ">
           <label
             htmlFor="my-drawer-2"
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
 
-          <ul className="menu bg-base-200  text-base-content min-h-full w-80 p-4">
+          <ul className="menu bg-base-200  text-base-content min-h-full w-64 p-4">
             {/* Sidebar content here */}
             {dashboardNavbar}
           </ul>

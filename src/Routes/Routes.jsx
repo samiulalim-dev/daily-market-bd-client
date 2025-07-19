@@ -9,6 +9,10 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 import AdminPrivateRoute from "../PrivateRoute/AdminPrivateRoute/AdminPrivateRoute";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import VendorPrivateRoute from "../PrivateRoute/VendorPrivateroute/VendorPrivateRoute";
+import VendorAddProducts from "../Pages/Dashboard/VendorAddProducts/VendorAddProducts";
+import MyAdvertisements from "../Pages/Dashboard/MyAdvertisements/MyAdvertisements";
+import MyProducts from "../Pages/Dashboard/MyProduct/MyProduct";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +49,22 @@ export const router = createBrowserRouter([
       {
         path: "home",
         Component: DashboardHome,
+      },
+      {
+        path: "add-products",
+        element: (
+          <VendorPrivateRoute>
+            <VendorAddProducts></VendorAddProducts>
+          </VendorPrivateRoute>
+        ),
+      },
+      {
+        path: "home",
+        element: (
+          <VendorPrivateRoute>
+            <MyProducts></MyProducts>
+          </VendorPrivateRoute>
+        ),
       },
       {
         path: "allUsers",

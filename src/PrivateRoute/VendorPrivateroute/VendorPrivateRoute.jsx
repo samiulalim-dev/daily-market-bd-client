@@ -1,20 +1,21 @@
-import { use } from "react";
+import React, { use } from "react";
+import Loading from "../../Shared/Logo/Loading/Loading";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import useUserRole from "../../Hooks/useUserRole/useUserRole";
-import Loading from "../../Shared/Logo/Loading/Loading";
 import Forbidden from "../../Shared/Forbidden/Forbidden";
 
-const AdminPrivateRoute = ({ children }) => {
+const VendorPrivateRoute = ({ children }) => {
   const { user, loading } = use(AuthContext);
   const { role, isRoleLoading } = useUserRole();
 
   if (loading || isRoleLoading) {
     return <Loading></Loading>;
   }
-  if (role !== "admin") {
+
+  if (role !== "vendor") {
     return <Forbidden></Forbidden>;
   }
   return children;
 };
 
-export default AdminPrivateRoute;
+export default VendorPrivateRoute;
