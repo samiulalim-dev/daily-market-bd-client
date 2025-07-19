@@ -5,11 +5,13 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import useAxiosSecure from "../../../Hooks/AxiosSecure/useAxiosSecure";
 import Loading from "../../../Shared/Logo/Loading/Loading";
 import { MdInventory } from "react-icons/md";
+import UpdateProductModal from "../UpdateProdcutModal/UpadateProductModal";
 const itemsPerPage = 8;
 const MyProducts = () => {
   const { user } = use(AuthContext);
   const queryClient = useQueryClient();
   const axiosSecure = useAxiosSecure();
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -18,6 +20,7 @@ const MyProducts = () => {
     data: products = [],
     isLoading,
     isError,
+    refetch,
     error,
   } = useQuery({
     queryKey: ["my-products", user?.email],
@@ -130,7 +133,10 @@ const MyProducts = () => {
                     >
                       Delete
                     </button>
-                    <button className="btn btn-sm btn-outline ml-2">
+                    <button
+                      onClick={() => setSelectedProduct(product)}
+                      className="btn btn-sm md:ml-1"
+                    >
                       Edit
                     </button>
                   </td>
@@ -162,6 +168,14 @@ const MyProducts = () => {
           Next ➡
         </button>
       </div>
+
+      {selectedProduct && (
+        <UpdateProductModal
+          product={selectedProduct}
+          refetch={refetch}
+          closeModal={() => setSelectedProduct(null)}
+        />
+      )}
     </div>
   );
 };
