@@ -1,15 +1,17 @@
-import { use } from "react";
+import { use, useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import useAxiosSecure from "../../../Hooks/AxiosSecure/useAxiosSecure";
 import Loading from "../../../Shared/Logo/Loading/Loading";
 import { MdInventory } from "react-icons/md";
-
+const itemsPerPage = 8;
 const MyProducts = () => {
   const { user } = use(AuthContext);
   const queryClient = useQueryClient();
   const axiosSecure = useAxiosSecure();
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   //  Fetch vendor-specific products
   const {
@@ -54,6 +56,17 @@ const MyProducts = () => {
     });
   };
 
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const myProducts = products.slice(startIndex, startIndex + itemsPerPage);
+
+  const handlePrev = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
   if (isLoading) return <Loading></Loading>;
   if (isError)
     return (
@@ -67,7 +80,7 @@ const MyProducts = () => {
         My Products
       </h2>
 
-      {products.length === 0 ? (
+      {myProducts.length === 0 ? (
         <p className="text-gray-500">No products found.</p>
       ) : (
         <div className="overflow-x-auto">
@@ -85,7 +98,7 @@ const MyProducts = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map((product, index) => (
+              {myProducts.map((product, index) => (
                 <tr key={product._id}>
                   <td>{index + 1}</td>
                   <td>
@@ -127,6 +140,28 @@ const MyProducts = () => {
           </table>
         </div>
       )}
+      {/* Pagination Controls */}
+      <div className="flex justify-center items-center gap-4">
+        <button
+          onClick={handlePrev}
+          disabled={currentPage === 1}
+          className="btn  bg-primary disabled:opacity-50"
+        >
+          ⬅ Prev
+        </button>
+
+        <span className="text-sm text-gray-600">
+          Page {currentPage} of {totalPages}
+        </span>
+
+        <button
+          onClick={handleNext}
+          disabled={currentPage === totalPages}
+          className="btn bg-primary   disabled:opacity-50"
+        >
+          Next ➡
+        </button>
+      </div>
     </div>
   );
 };
