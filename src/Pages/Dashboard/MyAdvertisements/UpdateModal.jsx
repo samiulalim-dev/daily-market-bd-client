@@ -49,7 +49,7 @@ const UpdateAdModal = ({ ad, onClose, refetch }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-10 bg-black bg-opacity-50 backdrop-blur-sm transition-all duration-300 flex items-center justify-center">
+    <div className="fixed inset-0 z-10  bg-gray-500/80  flex items-center justify-center">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white p-6 rounded w-full max-w-lg"
