@@ -45,6 +45,7 @@ const MyAdvertisements = () => {
               "Your advertisement has been deleted.",
               "success"
             );
+            refetch();
           }
         });
       }
