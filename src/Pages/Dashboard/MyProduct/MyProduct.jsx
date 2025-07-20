@@ -147,27 +147,29 @@ const MyProducts = () => {
         </div>
       )}
       {/* Pagination Controls */}
-      <div className="flex justify-center items-center gap-4">
-        <button
-          onClick={handlePrev}
-          disabled={currentPage === 1}
-          className="btn  bg-primary disabled:opacity-50"
-        >
-          ⬅ Prev
-        </button>
+      {myProducts.length !== 0 && (
+        <div className="flex justify-center items-center gap-4">
+          <button
+            onClick={handlePrev}
+            disabled={currentPage === 1}
+            className="btn  bg-primary disabled:opacity-50"
+          >
+            ⬅ Prev
+          </button>
 
-        <span className="text-sm text-gray-600">
-          Page {currentPage} of {totalPages}
-        </span>
+          <span className="text-sm text-gray-600">
+            Page {currentPage} of {totalPages}
+          </span>
 
-        <button
-          onClick={handleNext}
-          disabled={currentPage === totalPages}
-          className="btn bg-primary   disabled:opacity-50"
-        >
-          Next ➡
-        </button>
-      </div>
+          <button
+            onClick={handleNext}
+            disabled={currentPage === totalPages}
+            className="btn bg-primary   disabled:opacity-50"
+          >
+            Next ➡
+          </button>
+        </div>
+      )}
 
       {selectedProduct && (
         <UpdateProductModal

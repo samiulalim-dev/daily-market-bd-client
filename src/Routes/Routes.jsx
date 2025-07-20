@@ -13,6 +13,7 @@ import VendorPrivateRoute from "../PrivateRoute/VendorPrivateroute/VendorPrivate
 import VendorAddProducts from "../Pages/Dashboard/VendorAddProducts/VendorAddProducts";
 import MyAdvertisements from "../Pages/Dashboard/MyAdvertisements/MyAdvertisements";
 import MyProducts from "../Pages/Dashboard/MyProduct/MyProduct";
+import AddAdvertisementForm from "../Pages/Dashboard/AddAdvertisementForm/AddAdvertisementForm";
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +64,22 @@ export const router = createBrowserRouter([
         element: (
           <VendorPrivateRoute>
             <MyProducts></MyProducts>
+          </VendorPrivateRoute>
+        ),
+      },
+      {
+        path: "add-advertisement",
+        element: (
+          <VendorPrivateRoute>
+            <AddAdvertisementForm></AddAdvertisementForm>
+          </VendorPrivateRoute>
+        ),
+      },
+      {
+        path: "my-advertisements",
+        element: (
+          <VendorPrivateRoute>
+            <MyAdvertisements></MyAdvertisements>
           </VendorPrivateRoute>
         ),
       },
