@@ -14,6 +14,7 @@ import VendorAddProducts from "../Pages/Dashboard/VendorAddProducts/VendorAddPro
 import MyAdvertisements from "../Pages/Dashboard/MyAdvertisements/MyAdvertisements";
 import MyProducts from "../Pages/Dashboard/MyProduct/MyProduct";
 import AddAdvertisementForm from "../Pages/Dashboard/AddAdvertisementForm/AddAdvertisementForm";
+import AdminAllProducts from "../Pages/Dashboard/AdminAllProducts/AdminAllProducts";
 
 export const router = createBrowserRouter([
   {
@@ -88,6 +89,14 @@ export const router = createBrowserRouter([
         element: (
           <AdminPrivateRoute>
             <AllUsers></AllUsers>
+          </AdminPrivateRoute>
+        ),
+      },
+      {
+        path: "all-products",
+        element: (
+          <AdminPrivateRoute>
+            <AdminAllProducts></AdminAllProducts>
           </AdminPrivateRoute>
         ),
       },
