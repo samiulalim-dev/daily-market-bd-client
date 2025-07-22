@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import slider1 from "../../assets/slider1.webp";
-import slider2 from "../../assets/slider2.webp";
-import slider3 from "../../assets/slider3.webp";
 import { FaBullhorn } from "react-icons/fa";
+import useAxios from "../../Hooks/useAxios/useAxios";
+import Loading from "../../Shared/Logo/Loading/Loading";
+import { useQuery } from "@tanstack/react-query";
 const Advertisements = () => {
+  const axiosInstance = useAxios();
+  // console.log(ads);
+  const {
+    data: ads = [],
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["approved-ads"],
+    queryFn: async () => {
+      const res = await axiosInstance.get("/approved/advertisements");
+      return res.data;
+    },
+  });
+
+  if (isLoading) return <Loading></Loading>;
+  if (isError) return <p>Error: {error.message}</p>;
   return (
     <div className=" w-11/12 mx-auto ">
       <div className="text-center mb-8">
@@ -30,12 +47,26 @@ const Advertisements = () => {
           emulateTouch={false}
           stopOnHover={false}
         >
-          <div>
-            <img className=" rounded-2xl" src={slider1} alt="" />
-          </div>
-          <div>
-            <img className=" rounded-2xl" src={slider2} alt="" />
-          </div>
+          {ads.map((ad) => {
+            return (
+              <div
+                key={ad._id}
+                className="relative h-72 md:h-96 rounded-2xl overflow-hidden"
+              >
+                <img
+                  className="w-full h-full object-cover"
+                  src={ad.image}
+                  alt={ad.title}
+                />
+                <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white px-4 text-center">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                    {ad.title}
+                  </h3>
+                  <p className="text-base md:text-lg">{ad.description}</p>
+                </div>
+              </div>
+            );
+          })}
         </Carousel>
       </div>
     </div>

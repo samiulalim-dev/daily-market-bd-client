@@ -16,6 +16,7 @@ import MyProducts from "../Pages/Dashboard/MyProduct/MyProduct";
 import AddAdvertisementForm from "../Pages/Dashboard/AddAdvertisementForm/AddAdvertisementForm";
 import AdminAllProducts from "../Pages/Dashboard/AdminAllProducts/AdminAllProducts";
 import AllAdvertisements from "../Pages/Dashboard/AllAdvertisementes/AllAdvertisements";
+import AllProducts from "../Pages/AllProducts/AllProducts";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         Component: Register,
+      },
+      {
+        path: "allProducts",
+        Component: AllProducts,
       },
     ],
   },

@@ -123,22 +123,32 @@ const MyProducts = () => {
                     >
                       {product.status}
                     </span>
+                    {product.status === "rejected" && (
+                      <div className="bg-red-100 text-red-800 p-3 rounded mt-3">
+                        <p>
+                          <strong>Rejection Reason:</strong>{" "}
+                          {product.rejectedReason}
+                        </p>
+                      </div>
+                    )}
                   </td>
                   <td>৳{product.pricePerUnit}</td>
                   <td>{product.date}</td>
                   <td>
-                    <button
-                      onClick={() => handleDelete(product._id)}
-                      className="btn mb-1 md:mb-0 btn-sm btn-error text-white"
-                    >
-                      Delete
-                    </button>
-                    <button
-                      onClick={() => setSelectedProduct(product)}
-                      className="btn btn-sm md:ml-1"
-                    >
-                      Edit
-                    </button>
+                    <div className="flex flex-col md:flex-row">
+                      <button
+                        onClick={() => handleDelete(product._id)}
+                        className="btn mb-1 md:mb-0 btn-sm btn-error text-white"
+                      >
+                        Delete
+                      </button>
+                      <button
+                        onClick={() => setSelectedProduct(product)}
+                        className="btn btn-sm md:ml-1"
+                      >
+                        Edit
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
