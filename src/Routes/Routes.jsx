@@ -17,6 +17,8 @@ import AddAdvertisementForm from "../Pages/Dashboard/AddAdvertisementForm/AddAdv
 import AdminAllProducts from "../Pages/Dashboard/AdminAllProducts/AdminAllProducts";
 import AllAdvertisements from "../Pages/Dashboard/AllAdvertisementes/AllAdvertisements";
 import AllProducts from "../Pages/AllProducts/AllProducts";
+import { path } from "framer-motion/client";
+import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +41,14 @@ export const router = createBrowserRouter([
       {
         path: "allProducts",
         Component: AllProducts,
+      },
+      {
+        path: "/products/:id",
+        element: (
+          <PrivateRoute>
+            <ViewDetails></ViewDetails>
+          </PrivateRoute>
+        ),
       },
     ],
   },
