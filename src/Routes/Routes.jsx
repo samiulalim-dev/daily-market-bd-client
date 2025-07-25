@@ -20,6 +20,7 @@ import AllProducts from "../Pages/AllProducts/AllProducts";
 import { path } from "framer-motion/client";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import ManageWatchlist from "../Pages/Dashboard/ManageWatchList/ManageWatchList";
+import StripeCheckoutPage from "../Pages/StripeCheckoutPage/StripeCheckoutPage";
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +43,14 @@ export const router = createBrowserRouter([
       {
         path: "allProducts",
         Component: AllProducts,
+      },
+      {
+        path: "/checkout/:id",
+        element: (
+          <PrivateRoute>
+            <StripeCheckoutPage></StripeCheckoutPage>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/products/:id",

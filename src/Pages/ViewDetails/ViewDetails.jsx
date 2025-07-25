@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { use, useState } from "react";
 
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import useAxiosSecure from "../../Hooks/AxiosSecure/useAxiosSecure";
 import useAxios from "../../Hooks/useAxios/useAxios";
 import PriceComparisonChart from "./PriceComparisonChart/PriceComparisonChart";
@@ -18,6 +18,7 @@ const ViewDetails = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = use(AuthContext);
   const { role } = useUserRole();
+  const navigate = useNavigate();
   const { data: product, refetch } = useQuery({
     queryKey: ["product", id],
     queryFn: async () => {
@@ -43,15 +44,8 @@ const ViewDetails = () => {
     }
   };
 
-  const handleBuy = async () => {
-    try {
-      const res = await axios.post(`/create-payment-intent`, {
-        price: product.currentPrice,
-      });
-      window.location.href = res.data.url;
-    } catch (error) {
-      toast.error("Payment failed");
-    }
+  const handleBuy = () => {
+    navigate(`/checkout/${product._id}`);
   };
 
   if (!product) return <Loading></Loading>;

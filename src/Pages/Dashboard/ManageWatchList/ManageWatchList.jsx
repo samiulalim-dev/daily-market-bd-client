@@ -26,34 +26,6 @@ const ManageWatchlist = () => {
       return res.data;
     },
   });
-
-  //   const handleRemove = (productId) => {
-  //     Swal.fire({
-  //       title: "Are you sure?",
-  //       text: "Do you want to remove this product from watchlist?",
-  //       icon: "warning",
-  //       showCancelButton: true,
-  //       confirmButtonColor: "#dc3545",
-  //       cancelButtonColor: "#6c757d",
-  //       confirmButtonText: "Yes, remove it!",
-  //     }).then((result) => {
-  //       if (result.isConfirmed) {
-  //         axiosSecure
-  //           .delete(`/watchlist`, {
-  //             data: { productId, email: user.email },
-  //           })
-  //           .then((res) => {
-  //             if (res.data.deletedCount > 0) {
-  //               toast.success("Removed from watchlist");
-  //               setWatchlist((prev) =>
-  //                 prev.filter((item) => item.productId !== productId)
-  //               );
-  //             }
-  //           })
-  //           .catch(() => toast.error("Failed to remove"));
-  //       }
-  //     });
-  //   };
   const handleRemove = (productId) => {
     Swal.fire({
       title: "Are you sure?",
