@@ -19,6 +19,7 @@ import AllAdvertisements from "../Pages/Dashboard/AllAdvertisementes/AllAdvertis
 import AllProducts from "../Pages/AllProducts/AllProducts";
 import { path } from "framer-motion/client";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
+import ManageWatchlist from "../Pages/Dashboard/ManageWatchList/ManageWatchList";
 
 export const router = createBrowserRouter([
   {
@@ -122,6 +123,14 @@ export const router = createBrowserRouter([
           <AdminPrivateRoute>
             <AllAdvertisements></AllAdvertisements>
           </AdminPrivateRoute>
+        ),
+      },
+      {
+        path: "watchList",
+        element: (
+          <PrivateRoute>
+            <ManageWatchlist></ManageWatchlist>
+          </PrivateRoute>
         ),
       },
     ],

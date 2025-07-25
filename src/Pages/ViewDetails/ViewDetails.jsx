@@ -10,34 +10,33 @@ import PriceComparisonChart from "./PriceComparisonChart/PriceComparisonChart";
 import useUserRole from "../../Hooks/useUserRole/useUserRole";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import ReviewSection from "./ReviewSection/ReviewSection";
+import Loading from "../../Shared/Logo/Loading/Loading";
 
 const ViewDetails = () => {
   const { id } = useParams();
-  const axiosInstance = useAxios();
+  const [watchListLoading, setWatchListLoading] = useState(false);
+  const axiosSecure = useAxiosSecure();
   const { user } = use(AuthContext);
   const { role } = useUserRole();
   const { data: product, refetch } = useQuery({
     queryKey: ["product", id],
     queryFn: async () => {
-      const res = await axiosInstance.get(`/products/${id}`);
-      return res.data;
-    },
-  });
-
-  const { data: reviews = [] } = useQuery({
-    queryKey: ["reviews", id],
-    queryFn: async () => {
-      const res = await axiosInstance.get(`/reviews/${id}`);
+      const res = await axiosSecure.get(`/products/${id}`);
       return res.data;
     },
   });
 
   const handleWatchlist = async () => {
+    setWatchListLoading(true);
     try {
-      await axios.post(`/watchlist`, {
-        userEmail: user.email,
+      await axiosSecure.post(`/watchlist`, {
+        userEmail: user?.email,
         productId: id,
+        productName: product.itemName,
+        marketName: product.marketName,
+        addedAt: new Date(),
       });
+      setWatchListLoading(false);
       toast.success("Added to watchlist");
     } catch (error) {
       toast.error("Failed to add to watchlist");
@@ -55,7 +54,7 @@ const ViewDetails = () => {
     }
   };
 
-  if (!product) return <div>Loading...</div>;
+  if (!product) return <Loading></Loading>;
 
   return (
     <div className="">
@@ -95,9 +94,10 @@ const ViewDetails = () => {
             </button>
             <button
               className="btn btn-secondary text-white"
+              disabled={watchListLoading}
               onClick={handleWatchlist}
             >
-              Add to Watchlist
+              {watchListLoading ? "Loading..." : "Add to Watchlist"}
             </button>
           </div>
         )}
