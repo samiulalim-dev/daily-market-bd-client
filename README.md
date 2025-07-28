@@ -1,64 +1,110 @@
-# 🛒 Daily Market BD (Client)
+# 🥬 Daily Market BD 🛒
 
-**Daily Market BD** This is a local market price tracking website that features separate dashboards for Users, Vendors, and Admins.
-Users can view product prices, Vendors can upload products and advertisements, and Admins can manage everything across the platform.
-
----
-
-## 🔗 Live Site
-
-🌐 [Visit Live Site](https://your-client-deployment-link.com)
+A full-stack web application to track and manage daily prices of fresh produce and essentials from local markets across Bangladesh.
 
 ---
 
-## ⚙️ Technologies Used
+## 🌐 Live Website
+
+👉 [Visit Daily Market BD](https://your-deployed-site-url.com)
+
+---
+
+## 🎯 Project Purpose
+
+Daily Market BD helps users, vendors, and admins monitor daily price fluctuations of essential products in various local markets. It supports real-time updates, vendor advertisements, role-based dashboards, and price trend visualization.
+
+---
+
+## ✨ Key Features
+
+### 👨‍💼 User Features
+
+- Browse local market product prices.
+- Track product price trends 📈.
+- Place orders and view order history.
+- Filter products by market or category.
+
+### 🧑‍🍳 Vendor Features
+
+- Add new products and manage them.
+- Update product price history.
+- Create and manage market advertisements.
+- View order requests.
+
+### 🛡️ Admin Features
+
+- Role management (Make Admin, Approve Vendor).
+- View all orders, products, and advertisements.
+- Approve or reject vendor product submissions.
+- Monitor application analytics and activities.
+
+### 📊 Price Trend Visualization
+
+- Display product price changes over time using interactive Recharts graphs.
+
+---
+
+## 🧰 Tech Stack
+
+### 🖼️ Frontend
 
 - React.js
+- Tailwind CSS
+- DaisyUI
+- Axios
+- React Router DOM
+- React Hook Form
+- React Icons
+- Recharts
+- Firebase Authentication
+
+### 🔧 Backend
+
 - Node.js
 - Express.js
-- MongoDB.js
-- Tailwind CSS + DaisyUI
-- React Router DOM
-- Axios + TanStack Query
-- Firebase Authentication
-- Recharts
-- Stripe (for payment)
-- Framer Motion (for animation)
+- MongoDB
+- Firebase Admin SDK
+- JSON Web Token (JWT)
+- dotenv
+- cors
+- morgan
 
 ---
 
-## 🧩 Key Features
+## 📦 NPM Packages Used
 
-### 🧑 User Dashboard
+**Frontend:**
 
-- 🔍 Browse and track daily market product prices
-- 📈 View price trends over time
-- 🛒 Buy products (Stripe payment)
-- 📥 My Orders, View Details with trends
+- `axios`
+- `react-router-dom`
+- `react-hook-form`
+- `react-icons`
+- `recharts`
+- `firebase`
 
-### 🛍️ Vendor Dashboard
+**Backend:**
 
-- ➕ Add products with image, price, unit, stock
-- 📢 Post advertisements
-- 📦 Manage "My Products", Edit/Delete
-- 💵 View earnings from sales
+- `express`
+- `cors`
+- `dotenv`
+- `mongodb`
+- `firebase-admin`
+- `jsonwebtoken`
+- `morgan`
 
-### 🛠️ Admin Dashboard
+---
 
-- 👥 Manage all users and assign roles (admin/vendor/user)
-- 🧾 Manage all products
-- 📣 Manage advertisements
-- ✔️ Approve vendor requests
+## 🚀 Deployment
 
-### 🔐 Authentication & Security
+- **Frontend:** Netlify
+- **Backend:** Vercel
+- **Database:** MongoDB Atlas
 
-- Firebase Authentication
-- JWT-based Route Protection
-- Role-based access (User / Vendor / Admin)
+---
 
-### 📈 Price Trends
+## 🤝 Author
 
-- Recharts line chart for product price history
-- Dynamic API-based price history fetch
+Made with ❤️ by [Samiul Alim]
 
 ---
