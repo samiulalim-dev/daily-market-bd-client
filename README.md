@@ -68,7 +68,6 @@ Daily Market BD helps users, vendors, and admins monitor daily price fluctuation
 - JSON Web Token (JWT)
 - dotenv
 - cors
-- morgan
 
 ---
 
@@ -91,7 +90,6 @@ Daily Market BD helps users, vendors, and admins monitor daily price fluctuation
 - `mongodb`
 - `firebase-admin`
 - `jsonwebtoken`
-- `morgan`
 
 ---
 
