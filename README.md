@@ -1,12 +1,64 @@
-# React + Vite
+# 🛒 Daily Market BD (Client)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Daily Market BD** This is a local market price tracking website that features separate dashboards for Users, Vendors, and Admins.
+Users can view product prices, Vendors can upload products and advertisements, and Admins can manage everything across the platform.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Site
 
-## Expanding the ESLint configuration
+🌐 [Visit Live Site](https://your-client-deployment-link.com)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ⚙️ Technologies Used
+
+- React.js
+- Node.js
+- Express.js
+- MongoDB.js
+- Tailwind CSS + DaisyUI
+- React Router DOM
+- Axios + TanStack Query
+- Firebase Authentication
+- Recharts
+- Stripe (for payment)
+- Framer Motion (for animation)
+
+---
+
+## 🧩 Key Features
+
+### 🧑 User Dashboard
+
+- 🔍 Browse and track daily market product prices
+- 📈 View price trends over time
+- 🛒 Buy products (Stripe payment)
+- 📥 My Orders, View Details with trends
+
+### 🛍️ Vendor Dashboard
+
+- ➕ Add products with image, price, unit, stock
+- 📢 Post advertisements
+- 📦 Manage "My Products", Edit/Delete
+- 💵 View earnings from sales
+
+### 🛠️ Admin Dashboard
+
+- 👥 Manage all users and assign roles (admin/vendor/user)
+- 🧾 Manage all products
+- 📣 Manage advertisements
+- ✔️ Approve vendor requests
+
+### 🔐 Authentication & Security
+
+- Firebase Authentication
+- JWT-based Route Protection
+- Role-based access (User / Vendor / Admin)
+
+### 📈 Price Trends
+
+- Recharts line chart for product price history
+- Dynamic API-based price history fetch
+
+---

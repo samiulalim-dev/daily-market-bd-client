@@ -45,16 +45,6 @@ const Navbar = () => {
           </li>
         </>
       )}
-      <li>
-        <NavLink
-          to="/contacts"
-          className={({ isActive }) =>
-            isActive ? "text-green-700 underline" : "text-black"
-          }
-        >
-          Contact
-        </NavLink>
-      </li>
     </>
   );
   const handleLogOut = () => {

@@ -68,7 +68,7 @@ const CheckoutForm = ({ product }) => {
 
       if (res.data.insertedId) {
         toast.success("✅ Product purchased successfully!");
-        navigate("/dashboard");
+        navigate("/dashboard/orders");
       } else {
         toast.error("❌ Failed to save purchase!");
       }

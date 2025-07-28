@@ -51,13 +51,14 @@ const UpdateProductModal = ({ product, refetch, closeModal }) => {
 
     data.date = formattedDate;
     data.pricePerUnit = price;
-    data.prices = [
-      {
-        date: formattedDate,
-        price,
-      },
-    ];
-    mutate(data);
+    const payload = {
+      ...data,
+      newPrice: price,
+      date: formattedDate,
+    };
+    delete payload.prices;
+
+    mutate(payload);
   };
 
   return (

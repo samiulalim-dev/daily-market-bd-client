@@ -21,6 +21,8 @@ import { path } from "framer-motion/client";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import ManageWatchlist from "../Pages/Dashboard/ManageWatchList/ManageWatchList";
 import StripeCheckoutPage from "../Pages/StripeCheckoutPage/StripeCheckoutPage";
+import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
+import AllOrders from "../Pages/Dashboard/AllOrders/AllOrders";
 
 export const router = createBrowserRouter([
   {
@@ -135,10 +137,26 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "all-orders",
+        element: (
+          <AdminPrivateRoute>
+            <AllOrders></AllOrders>
+          </AdminPrivateRoute>
+        ),
+      },
+      {
         path: "watchList",
         element: (
           <PrivateRoute>
             <ManageWatchlist></ManageWatchlist>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "orders",
+        element: (
+          <PrivateRoute>
+            <MyOrders></MyOrders>
           </PrivateRoute>
         ),
       },

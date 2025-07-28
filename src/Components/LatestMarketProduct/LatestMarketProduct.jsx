@@ -1,7 +1,27 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { FaShoppingBasket } from "react-icons/fa";
+import Loading from "../../Shared/Logo/Loading/Loading";
+import useAxios from "../../Hooks/useAxios/useAxios";
+import { Link } from "react-router";
 const LatestMarketProduct = () => {
+  const axiosInstance = useAxios();
+  // console.log(ads);
+  const {
+    data: products = [],
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["latest-products"],
+    queryFn: async () => {
+      const res = await axiosInstance.get("/products/home-products");
+      return res.data;
+    },
+  });
+
+  if (isLoading) return <Loading></Loading>;
+  if (isError)
+    return <p className="text-center text-red-500">❌ Something went wrong!</p>;
   return (
     <div className=" my-7 md:my-12">
       <motion.div
@@ -21,144 +41,38 @@ const LatestMarketProduct = () => {
           </p>
         </div>
         <div className=" grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-5">
-          {/* card 1 */}
-          <div className="card bg-base-100  shadow-sm">
-            <figure>
+          {products.map((product) => (
+            <div
+              key={product._id}
+              className="bg-white shadow-xl p-4 rounded-2xl"
+            >
               <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes"
+                src={product.productImage}
+                alt={product.itemName}
+                className="h-40 w-full object-cover rounded-xl mb-3"
               />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">
-                Card Title
-                <div className="badge badge-secondary">NEW</div>
-              </h2>
-              <p>
-                A card component has a figure, a body part, and inside body
-                there are title and actions parts
+              <h3 className="text-lg font-semibold">{product.marketName}</h3>
+              <p className="text-sm text-gray-500">
+                📅 {new Date(product.date).toLocaleDateString()}
               </p>
-              <div className="card-actions justify-end">
-                <div className="badge badge-outline">Fashion</div>
-                <div className="badge badge-outline">Products</div>
+
+              <div className="mt-3">
+                <p className="text-sm">
+                  🧾 <strong>{product.itemName}</strong> — ৳
+                  {product.pricePerUnit}/kg
+                </p>
+              </div>
+
+              <div className="mt-4">
+                <Link
+                  to={`/products/${product._id}`}
+                  className=" btn btn-primary text-white"
+                >
+                  View Details
+                </Link>
               </div>
             </div>
-          </div>
-          {/* card 2 */}
-          <div className="card bg-base-100  shadow-sm">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">
-                Card Title
-                <div className="badge badge-secondary">NEW</div>
-              </h2>
-              <p>
-                A card component has a figure, a body part, and inside body
-                there are title and actions parts
-              </p>
-              <div className="card-actions justify-end">
-                <div className="badge badge-outline">Fashion</div>
-                <div className="badge badge-outline">Products</div>
-              </div>
-            </div>
-          </div>
-          {/* card 3 */}
-          <div className="card bg-base-100  shadow-sm">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">
-                Card Title
-                <div className="badge badge-secondary">NEW</div>
-              </h2>
-              <p>
-                A card component has a figure, a body part, and inside body
-                there are title and actions parts
-              </p>
-              <div className="card-actions justify-end">
-                <div className="badge badge-outline">Fashion</div>
-                <div className="badge badge-outline">Products</div>
-              </div>
-            </div>
-          </div>
-          {/* card 4 */}
-          <div className="card bg-base-100  shadow-sm">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">
-                Card Title
-                <div className="badge badge-secondary">NEW</div>
-              </h2>
-              <p>
-                A card component has a figure, a body part, and inside body
-                there are title and actions parts
-              </p>
-              <div className="card-actions justify-end">
-                <div className="badge badge-outline">Fashion</div>
-                <div className="badge badge-outline">Products</div>
-              </div>
-            </div>
-          </div>
-          {/* card 5 */}
-          <div className="card bg-base-100  shadow-sm">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">
-                Card Title
-                <div className="badge badge-secondary">NEW</div>
-              </h2>
-              <p>
-                A card component has a figure, a body part, and inside body
-                there are title and actions parts
-              </p>
-              <div className="card-actions justify-end">
-                <div className="badge badge-outline">Fashion</div>
-                <div className="badge badge-outline">Products</div>
-              </div>
-            </div>
-          </div>
-          {/* card 6 */}
-          <div className="card bg-base-100  shadow-sm">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">
-                Card Title
-                <div className="badge badge-secondary">NEW</div>
-              </h2>
-              <p>
-                A card component has a figure, a body part, and inside body
-                there are title and actions parts
-              </p>
-              <div className="card-actions justify-end">
-                <div className="badge badge-outline">Fashion</div>
-                <div className="badge badge-outline">Products</div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </motion.div>
     </div>
