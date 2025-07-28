@@ -6,7 +6,7 @@ A full-stack web application to track and manage daily prices of fresh produce a
 
 ## 🌐 Live Website
 
-👉 [Visit Daily Market BD](https://your-deployed-site-url.com)
+👉 [Visit Daily Market BD](https://daily-market-bd.netlify.app/)
 
 ---
 
