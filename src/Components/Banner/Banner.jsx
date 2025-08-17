@@ -11,7 +11,7 @@ const Banner = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="relative z-10 text-center  p-6 max-w-2xl"
+        className="relative z-10 text-center text-black  p-6 max-w-2xl"
       >
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Get Daily Local Market Prices
@@ -20,10 +20,17 @@ const Banner = () => {
           Track, compare & shop smart from your nearby vendors.
         </p>
         <div className="flex justify-center gap-4">
-          <Link to="/allProducts" className="btn text-white bg-primary">
+          <Link
+            to="/allProducts"
+            className="px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
+          >
             Explore Products
           </Link>
-          <Link to="/register" className="btn btn-outline  hover:bg-secondary">
+
+          <Link
+            to="/register"
+            className="px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white"
+          >
             Sign Up
           </Link>
         </div>

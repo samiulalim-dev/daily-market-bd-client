@@ -96,7 +96,7 @@ const Navbar = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="btn btn-ghost p-2 hover:bg-emerald-100 dark:hover:bg-emerald-900/30"
+              className=" p-2 hover:bg-emerald-100 dark:hover:bg-emerald-900/30"
             >
               {isMenuOpen ? (
                 <HiX className="h-6 w-6" />

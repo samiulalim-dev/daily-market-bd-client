@@ -44,7 +44,7 @@ const LatestMarketProduct = () => {
           {products.map((product) => (
             <div
               key={product._id}
-              className="bg-white shadow-xl p-4 rounded-2xl"
+              className="bg-white shadow-xl p-4  rounded-2xl"
             >
               <img
                 src={product.productImage}
@@ -66,7 +66,7 @@ const LatestMarketProduct = () => {
               <div className="mt-4">
                 <Link
                   to={`/products/${product._id}`}
-                  className=" btn btn-primary text-white"
+                  className="px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
                 >
                   View Details
                 </Link>
