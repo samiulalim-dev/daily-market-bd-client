@@ -5,6 +5,8 @@ import Advertisements from "../../Components/Advertisements/Advertisements";
 import UpcomingMarketDays from "../../Components/UpcomingMarketDays/UpcomingMarketDays";
 import HowItWorks from "../../Components/HowItWorks/HowItWorks";
 import Testimonials from "../../Components/Testimonials/Testimonials";
+import Newsletter from "../../Components/Newsletter/Newsletter";
+import BestSellers from "../../Components/BestSellers/BestSellers";
 
 const Home = () => {
   return (
@@ -25,6 +27,10 @@ const Home = () => {
       <div>
         <UpcomingMarketDays></UpcomingMarketDays>
       </div>
+      {/* best seller products */}
+      <div>
+        <BestSellers></BestSellers>
+      </div>
       {/* how it works */}
       <div>
         <HowItWorks></HowItWorks>
@@ -33,8 +39,23 @@ const Home = () => {
       <div>
         <Testimonials></Testimonials>
       </div>
+      {/* newsletters */}
+      <div>
+        <Newsletter></Newsletter>
+      </div>
     </div>
   );
 };
 
 export default Home;
+{
+  /* <h2 className="text-3xl md:text-4xl font-bold text-center text-green-700 ">
+          Our Best Sellers Products
+        </h2>
+        <Link
+          to="/allProducts"
+          className="px-4 py-2 btn rounded-lg font-medium transition-all duration-300 hover:scale-105 bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
+        >
+          View All Products
+        </Link> */
+}
