@@ -17,7 +17,7 @@ const PriceTrends = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/price-trends") // 🔁 Update with your backend URL
+      .get("https://daily-market-bd-server.vercel.app/api/price-trends")
       .then((res) => setTrendData(res.data))
       .catch((err) => console.error("Error fetching price trends:", err));
   }, []);

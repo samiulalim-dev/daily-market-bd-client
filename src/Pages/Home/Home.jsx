@@ -1,5 +1,4 @@
 import React from "react";
-
 import LatestMarketProduct from "../../Components/LatestMarketProduct/LatestMarketProduct";
 import Banner from "../../Components/Banner/Banner";
 import Advertisements from "../../Components/Advertisements/Advertisements";

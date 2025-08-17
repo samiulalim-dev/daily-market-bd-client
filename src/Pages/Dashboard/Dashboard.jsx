@@ -9,7 +9,7 @@ const Dashboard = () => {
     <div>
       <div className="min-h-screen flex flex-col">
         {/* Navbar */}
-        <div className="hidden lg:block">
+        <div className="hidden  sticky top-0 z-30  lg:block">
           <Navbar></Navbar>
         </div>
 
