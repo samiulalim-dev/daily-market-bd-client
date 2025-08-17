@@ -4,6 +4,7 @@ import Banner from "../../Components/Banner/Banner";
 import Advertisements from "../../Components/Advertisements/Advertisements";
 import UpcomingMarketDays from "../../Components/UpcomingMarketDays/UpcomingMarketDays";
 import HowItWorks from "../../Components/HowItWorks/HowItWorks";
+import Testimonials from "../../Components/Testimonials/Testimonials";
 
 const Home = () => {
   return (
@@ -27,6 +28,10 @@ const Home = () => {
       {/* how it works */}
       <div>
         <HowItWorks></HowItWorks>
+      </div>
+      {/* user Testimonials */}
+      <div>
+        <Testimonials></Testimonials>
       </div>
     </div>
   );

@@ -18,6 +18,7 @@ const LatestMarketProduct = () => {
       return res.data;
     },
   });
+  // console.log(products);
 
   if (isLoading) return <Loading></Loading>;
   if (isError)
@@ -51,16 +52,21 @@ const LatestMarketProduct = () => {
                 alt={product.itemName}
                 className="h-40 w-full object-cover rounded-xl mb-3"
               />
-              <h3 className="text-lg font-semibold">{product.marketName}</h3>
+              <h3 className="text-lg text-black font-semibold">
+                {product.marketName}
+              </h3>
               <p className="text-sm text-gray-500">
                 📅 {new Date(product.date).toLocaleDateString()}
               </p>
 
               <div className="mt-3">
-                <p className="text-sm">
+                <p className="text-sm text-black">
                   🧾 <strong>{product.itemName}</strong> — ৳
                   {product.pricePerUnit}/kg
                 </p>
+              </div>
+              <div className="mt-3">
+                <p className="text-sm text-black">{product.itemDescription}</p>
               </div>
 
               <div className="mt-4">
