@@ -23,6 +23,7 @@ import ManageWatchlist from "../Pages/Dashboard/ManageWatchList/ManageWatchList"
 import StripeCheckoutPage from "../Pages/StripeCheckoutPage/StripeCheckoutPage";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import AllOrders from "../Pages/Dashboard/AllOrders/AllOrders";
+import TermsAndConditions from "../Components/TermsAndConditions/TermsAndConditions";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: "allProducts",
         Component: AllProducts,
+      },
+      {
+        path: "terms",
+        Component: TermsAndConditions,
       },
       {
         path: "/checkout/:id",

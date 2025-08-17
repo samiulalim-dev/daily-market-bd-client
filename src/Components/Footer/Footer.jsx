@@ -58,9 +58,7 @@ const Footer = () => {
             <li>
               <Link to="/allProducts">All Products</Link>
             </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
+
             <li>
               <Link to="/terms" className="hover:text-green-400 transition">
                 Terms & Conditions
@@ -79,7 +77,7 @@ const Footer = () => {
               href="https://www.facebook.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-600 hover:bg-green-500 p-3 rounded-full text-white transition"
+              className="bg-gradient-to-r from-green-600 via-emerald-600 to-green-700  p-3 rounded-full text-white transition"
               aria-label="Facebook"
             >
               <FaFacebookF />
@@ -88,7 +86,7 @@ const Footer = () => {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-600 hover:bg-green-500 p-3 rounded-full text-white transition"
+              className="bg-gradient-to-r from-green-600 via-emerald-600 to-green-700 p-3 rounded-full text-white transition"
               aria-label="Twitter"
             >
               <FaTwitter />
@@ -97,7 +95,7 @@ const Footer = () => {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-600 hover:bg-green-500 p-3 rounded-full text-white transition"
+              className="bg-gradient-to-r from-green-600 via-emerald-600 to-green-700 p-3 rounded-full text-white transition"
               aria-label="Instagram"
             >
               <FaInstagram />
@@ -106,7 +104,7 @@ const Footer = () => {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-600 hover:bg-green-500 p-3 rounded-full text-white transition"
+              className="bg-gradient-to-r from-green-600 via-emerald-600 to-green-700 p-3 rounded-full text-white transition"
               aria-label="LinkedIn"
             >
               <FaLinkedinIn />

@@ -56,8 +56,8 @@ const AllProducts = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
-      <h2 className="text-3xl font-bold text-center mb-8 flex items-center justify-center gap-2">
-        <FaShoppingBag className="text-pink-600" />
+      <h2 className="text-3xl text-green-700 font-bold text-center mb-8 flex items-center justify-center gap-2">
+        <FaShoppingBag />
         All Market Products
       </h2>
 
@@ -138,7 +138,7 @@ const AllProducts = () => {
               <div className="card-actions justify-end">
                 <Link
                   to={`/products/${product._id}`}
-                  className="btn btn-sm btn-outline btn-primary"
+                  className="px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
                 >
                   View Details
                 </Link>
@@ -154,7 +154,7 @@ const AllProducts = () => {
           <button
             onClick={handlePrev}
             disabled={currentPage === 1}
-            className="btn  bg-primary disabled:opacity-50"
+            className="px-4 py-2 btn  rounded-lg font-medium transition-all  hover:scale-105 bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
           >
             ⬅ Prev
           </button>
@@ -166,7 +166,7 @@ const AllProducts = () => {
           <button
             onClick={handleNext}
             disabled={currentPage === totalPages}
-            className="btn bg-primary   disabled:opacity-50"
+            className="px-4 py-2 btn  rounded-lg font-medium transition-all duration-300 hover:scale-105 bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
           >
             Next ➡
           </button>

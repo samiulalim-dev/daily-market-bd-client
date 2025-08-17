@@ -31,7 +31,7 @@ const LatestMarketProduct = () => {
         viewport={{ once: true }}
       >
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-4 flex items-center justify-center gap-2">
+          <h2 className="text-3xl md:text-4xl  font-bold text-center text-green-700 mb-4 flex items-center justify-center gap-2">
             <FaShoppingBasket className="text-green-700" />
             Latest Market Products
           </h2>

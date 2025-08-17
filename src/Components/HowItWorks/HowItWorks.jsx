@@ -41,8 +41,8 @@ const HowItWorks = () => {
   return (
     <section className=" py-16 px-4 md:px-10">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-4 flex items-center justify-center gap-2">
-          <FaQuestionCircle className="text-primary" />
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-green-700 mb-4 flex items-center justify-center gap-2">
+          <FaQuestionCircle className="" />
           How It Works
         </h2>
         <p className="text-center text-gray-600 mb-10">
@@ -50,11 +50,11 @@ const HowItWorks = () => {
           steps.
         </p>
 
-        <div className="relative border-l-4 border-primary pl-6 space-y-10">
+        <div className="relative border-l-4 border-green-700 pl-6 space-y-10">
           {steps.map((step) => (
             <div key={step.id} data-aos={step.animation} className="relative">
               {/* Icon Badge */}
-              <div className="absolute -left-[34px] top-0 bg-primary rounded-full p-3 shadow-lg">
+              <div className="absolute -left-[34px] top-0 bg-gradient-to-r from-green-600 via-emerald-600 to-green-700 rounded-full p-3 shadow-lg">
                 {step.icon}
               </div>
 

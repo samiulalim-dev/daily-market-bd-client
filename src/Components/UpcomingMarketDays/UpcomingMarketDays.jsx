@@ -130,9 +130,9 @@ const UpcomingMarketDays = () => {
         viewport={{ once: true }}
         className="max-w-6xl mx-auto text-center"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-4 flex items-center justify-center gap-2">
-          <FaCalendarAlt className="text-primary hidden sm:block"></FaCalendarAlt>{" "}
-          Upcoming Market Days
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-green-700 mb-4 flex items-center justify-center gap-2">
+          <FaCalendarAlt className=" hidden sm:block"></FaCalendarAlt> Upcoming
+          Market Days
         </h2>
         <p className="text-gray-600 mb-10">
           Plan your shopping by knowing when and where local markets open!
@@ -182,7 +182,7 @@ const UpcomingMarketDays = () => {
           <button
             onClick={handlePrev}
             disabled={currentPage === 1}
-            className="btn  bg-primary disabled:opacity-50"
+            className="px-4 py-2 brn rounded-lg font-medium transition-all duration-300 hover:scale-105 bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
           >
             ⬅ Prev
           </button>
@@ -194,7 +194,7 @@ const UpcomingMarketDays = () => {
           <button
             onClick={handleNext}
             disabled={currentPage === totalPages}
-            className="btn bg-primary   disabled:opacity-50"
+            className="px-4 py-2 btn rounded-lg font-medium transition-all duration-300 hover:scale-105 bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
           >
             Next ➡
           </button>
