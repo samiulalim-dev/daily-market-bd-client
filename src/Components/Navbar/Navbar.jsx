@@ -83,20 +83,20 @@ const Navbar = () => {
 
   return (
     <div
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`transition-all duration-300 ${
         isScrolled
           ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-xl border-b border-gray-200/50 dark:border-gray-700/50"
           : "bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-lg"
       }`}
     >
-      <div className="navbar max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="navbar md:w-11/12 mx-auto px-2">
         {/* Left Section: Mobile Button + Logo */}
         <div className="navbar-start flex items-center gap-2">
           {/* Mobile menu button */}
-          <div className="lg:hidden">
+          <div className="lg:hidden  mr-2 ">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className=" p-2 hover:bg-emerald-100 dark:hover:bg-emerald-900/30"
+              className="  text-black hover:bg-emerald-100 dark:hover:bg-emerald-900/30"
             >
               {isMenuOpen ? (
                 <HiX className="h-6 w-6" />
@@ -120,8 +120,8 @@ const Navbar = () => {
         </div>
 
         {/* Right Section: User / Login */}
-        <div className="navbar-end flex items-center gap-3">
-          {/* Notifications */}
+        <div className="navbar-end flex items-center sm:gap-3">
+          {/* ThemeToggle */}
           <ThemeToggle></ThemeToggle>
 
           {/* User Menu */}
