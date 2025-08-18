@@ -128,7 +128,10 @@ const Login = () => {
             </div>
 
             {/* Submit */}
-            <button type="submit" className="btn btn-primary w-full text-white">
+            <button
+              type="submit"
+              className="px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
+            >
               Login
             </button>
           </form>

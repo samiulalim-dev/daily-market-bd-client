@@ -11,6 +11,7 @@ const AllUsers = () => {
   const {
     data: users = [],
     isLoading,
+    isError,
     refetch,
   } = useQuery({
     queryKey: ["users", searchText],

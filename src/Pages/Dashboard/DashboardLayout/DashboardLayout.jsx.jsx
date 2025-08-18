@@ -20,6 +20,7 @@ import {
 import { ImExit } from "react-icons/im";
 import Loading from "../../../Shared/Logo/Loading/Loading";
 import useUserRole from "../../../Hooks/useUserRole/useUserRole";
+import UserProfile from "../UserProfile/UserProfile";
 const DashboardLayout = () => {
   const { user, logOut, loading } = use(AuthContext);
   const { role, isRoleLoading } = useUserRole();
@@ -183,13 +184,12 @@ const DashboardLayout = () => {
     <div>
       <div className="drawer  lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-
         <div className="drawer-content ">
-          <div className="drawer   sticky top-0 z-50">
+          <div className="drawer  sticky top-0 z-50">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex  lg:hidden ">
+            <div className="drawer-content flex   lg:hidden ">
               {/* Navbar */}
-              <div className="navbar flex justify-between items-center bg-base-200 w-full">
+              <div className="navbar sticky top-0 z-50 flex justify-between items-center bg-base-300 w-full">
                 <div className="flex-none lg:hidden">
                   <label
                     htmlFor="my-drawer-3"
@@ -269,15 +269,18 @@ const DashboardLayout = () => {
 
               {/* Page content here */}
             </div>
-            <div className="drawer-side">
+            <div
+              className="drawer-side 
+             "
+            >
               <label
                 htmlFor="my-drawer-3"
                 aria-label="close sidebar"
                 className="drawer-overlay"
               ></label>
-              <ul className="menu  bg-base-200 min-h-full md:w-80 p-4">
-                {/* Sidebar content here */}
 
+              <ul className="menu  bg-gradient-to-t from-emerald-500 to-teal-600  shadow-lg min-h-full md:w-80 p-4">
+                {/* Sidebar content here */}
                 {dashboardNavbar}
               </ul>
             </div>
@@ -293,6 +296,7 @@ const DashboardLayout = () => {
           ></label>
 
           <ul className="menu  bg-gradient-to-t from-emerald-500 to-teal-600  shadow-lg   min-h-full w-64 p-4">
+            <UserProfile></UserProfile>
             {/* Sidebar content here */}
             {dashboardNavbar}
           </ul>

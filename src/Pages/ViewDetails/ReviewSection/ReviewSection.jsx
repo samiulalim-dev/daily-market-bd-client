@@ -95,7 +95,7 @@ const ReviewSection = ({ productId }) => {
 
           <button
             type="submit"
-            className="bg-green-500 cursor-pointer hover:bg-green-600 text-white px-4 py-2 rounded"
+            className="px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
           >
             Submit Review
           </button>
