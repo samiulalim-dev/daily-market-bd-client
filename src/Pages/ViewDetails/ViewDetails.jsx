@@ -101,19 +101,6 @@ const ViewDetails = () => {
         </div>
 
         {/* <div>
-          <h3 className="text-xl font-semibold">User Reviews:</h3>
-          {reviews.map((review, idx) => (
-            <div key={idx} className="border p-2 rounded mb-2">
-              <p>
-                <strong>{review.name}</strong> ({review.email}) - ⭐{" "}
-                {review.rating}
-              </p>
-              <p>{review.comment}</p>
-              <p className="text-sm text-gray-500">{review.date}</p>
-            </div>
-          ))}
-        </div> */}
-        {/* <div>
           <PriceComparisonChart productId={product._id}></PriceComparisonChart>
         </div> */}
       </div>

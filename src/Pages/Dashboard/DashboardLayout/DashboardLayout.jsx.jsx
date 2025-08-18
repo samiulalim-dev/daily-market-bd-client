@@ -39,7 +39,7 @@ const DashboardLayout = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "underline text-green-600" : "text-black"
+            isActive ? "bg-white/30  shadow-lg" : "text-white"
           }
         >
           <FaHome className="inline mr-2" /> Home
@@ -51,7 +51,7 @@ const DashboardLayout = () => {
             <NavLink
               to="/dashboard/home"
               className={({ isActive }) =>
-                isActive ? "underline text-lime-600" : "text-black"
+                isActive ? "bg-white/30  shadow-lg" : "text-white"
               }
             >
               <FaChartLine className="inline mr-2" /> View Price Trends
@@ -62,7 +62,7 @@ const DashboardLayout = () => {
             <NavLink
               to="/dashboard/watchList"
               className={({ isActive }) =>
-                isActive ? "underline text-lime-600" : "text-black"
+                isActive ? "bg-white/30  shadow-lg" : "text-white"
               }
             >
               <FaStar className="inline mr-2" /> Manage Watchlist
@@ -72,7 +72,7 @@ const DashboardLayout = () => {
             <NavLink
               to="/dashboard/orders"
               className={({ isActive }) =>
-                isActive ? "underline text-lime-600" : "text-black"
+                isActive ? "bg-white/30  shadow-lg" : "text-white"
               }
             >
               <FaShoppingCart className="inline mr-2" /> My Order List
@@ -89,7 +89,7 @@ const DashboardLayout = () => {
             <NavLink
               to="/dashboard/home"
               className={({ isActive }) =>
-                isActive ? "underline text-lime-600" : "text-black"
+                isActive ? "bg-white/30  shadow-lg" : "text-white"
               }
             >
               <FaBox className="inline mr-2" /> My Products
@@ -99,7 +99,7 @@ const DashboardLayout = () => {
             <NavLink
               to="/dashboard/add-products"
               className={({ isActive }) =>
-                isActive ? "underline text-lime-600" : "text-black"
+                isActive ? "bg-white/30  shadow-lg" : "text-white"
               }
             >
               <FaPlus className="inline mr-2" /> Add Product
@@ -110,7 +110,7 @@ const DashboardLayout = () => {
             <NavLink
               to="/dashboard/add-advertisement"
               className={({ isActive }) =>
-                isActive ? "underline text-lime-600" : "text-black"
+                isActive ? "bg-white/30  shadow-lg" : "text-white"
               }
             >
               <FaBullhorn className="inline mr-2" /> Add Advertisement
@@ -120,7 +120,7 @@ const DashboardLayout = () => {
             <NavLink
               to="/dashboard/my-advertisements"
               className={({ isActive }) =>
-                isActive ? "underline text-lime-600" : "text-black"
+                isActive ? "bg-white/30  shadow-lg" : "text-white"
               }
             >
               <FaClipboardList className="inline mr-2" /> My Advertisements
@@ -136,7 +136,7 @@ const DashboardLayout = () => {
             <NavLink
               to="/dashboard/home"
               className={({ isActive }) =>
-                isActive ? "underline text-lime-600" : "text-black"
+                isActive ? "bg-white/30  shadow-lg" : "text-white"
               }
             >
               <FaUsers className="inline mr-2" /> All Users
@@ -146,7 +146,7 @@ const DashboardLayout = () => {
             <NavLink
               to="/dashboard/all-products"
               className={({ isActive }) =>
-                isActive ? "underline text-lime-600" : "text-black"
+                isActive ? "bg-white/30   shadow-lg" : "text-white"
               }
             >
               <FaBoxes className="inline mr-2" /> All Products
@@ -156,7 +156,7 @@ const DashboardLayout = () => {
             <NavLink
               to="/dashboard/all-ads"
               className={({ isActive }) =>
-                isActive ? "underline text-lime-600" : "text-black"
+                isActive ? "bg-white/30   shadow-lg" : "text-white"
               }
             >
               <FaAd className="inline mr-2" /> All Advertisements
@@ -166,7 +166,7 @@ const DashboardLayout = () => {
             <NavLink
               to="/dashboard/all-orders"
               className={({ isActive }) =>
-                isActive ? "underline text-lime-600" : "text-black"
+                isActive ? "bg-white/30   shadow-lg" : "text-white"
               }
             >
               <FaShoppingBag className="inline mr-2" /> All Orders
@@ -184,8 +184,8 @@ const DashboardLayout = () => {
       <div className="drawer  lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
-        <div className="drawer-content  ">
-          <div className="drawer">
+        <div className="drawer-content ">
+          <div className="drawer   sticky top-0 z-50">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex  lg:hidden ">
               {/* Navbar */}
@@ -275,7 +275,7 @@ const DashboardLayout = () => {
                 aria-label="close sidebar"
                 className="drawer-overlay"
               ></label>
-              <ul className="menu bg-base-200 min-h-full md:w-80 p-4">
+              <ul className="menu  bg-base-200 min-h-full md:w-80 p-4">
                 {/* Sidebar content here */}
 
                 {dashboardNavbar}
@@ -292,7 +292,7 @@ const DashboardLayout = () => {
             className="drawer-overlay"
           ></label>
 
-          <ul className="menu bg-base-200  text-base-content min-h-full w-64 p-4">
+          <ul className="menu  bg-gradient-to-t from-emerald-500 to-teal-600  shadow-lg   min-h-full w-64 p-4">
             {/* Sidebar content here */}
             {dashboardNavbar}
           </ul>

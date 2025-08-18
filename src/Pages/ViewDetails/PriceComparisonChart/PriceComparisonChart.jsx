@@ -10,14 +10,15 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import useAxiosSecure from "../../../Hooks/AxiosSecure/useAxiosSecure";
 
 const PriceComparisonChart = ({ id }) => {
   const [compareDate, setCompareDate] = useState("");
-
+  const axiosSecure = useAxiosSecure();
   const { data: chartData = [], isLoading } = useQuery({
     queryKey: ["chartData", id, compareDate],
     queryFn: async () => {
-      const res = await axios.get(
+      const res = await axiosSecure.get(
         `/price-history/${id}${
           compareDate ? `?compareDate=${compareDate}` : ""
         }`
@@ -36,13 +37,6 @@ const PriceComparisonChart = ({ id }) => {
       <h2 className="text-xl font-semibold mb-4 text-center">
         Price Comparison Chart
       </h2>
-
-      <input
-        type="date"
-        className="mb-6 border p-2 rounded w-full"
-        value={compareDate}
-        onChange={handleDateChange}
-      />
 
       {isLoading ? (
         <p>Loading chart...</p>

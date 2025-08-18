@@ -55,7 +55,9 @@ const ReviewSection = ({ productId }) => {
 
   return (
     <div className="bg-white p-4 mt-6 rounded-xl shadow-md">
-      <h2 className="text-xl font-semibold mb-4">📝 Review & Comments</h2>
+      <h2 className="text-xl text-black font-semibold mb-4">
+        📝 Review & Comments
+      </h2>
 
       {user ? (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
@@ -80,10 +82,12 @@ const ReviewSection = ({ productId }) => {
           </div>
 
           <div>
-            <label className="font-medium block mb-1">Your Comment</label>
+            <label className="font-medium text-black block mb-1">
+              Your Comment
+            </label>
             <textarea
               {...register("comment", { required: true })}
-              className="border w-full rounded px-3 py-1"
+              className="border text-black w-full rounded px-3 py-1"
               rows={3}
               placeholder="Write your feedback "
             ></textarea>
@@ -101,8 +105,8 @@ const ReviewSection = ({ productId }) => {
       )}
 
       <div className="mt-6">
-        <h3 className="font-semibold mb-2">📋 All Reviews</h3>
-        {reviews.length === 0 && <p>No reviews yet.</p>}
+        <h3 className="font-semibold text-black mb-2">📋 All Reviews</h3>
+        {reviews.length === 0 && <p className="text-black">No reviews yet.</p>}
         <ul className="space-y-4">
           {reviews.map((review) => (
             <li key={review._id} className="bg-gray-100 p-3 rounded">

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import vegetable from "../../assets/vegetable.png";
+import vegetable from "../../assets/vegetable1.png";
 const Newsletter = () => {
   return (
     <section className="bg-gradient-to-r from-green-50 to-green-100 py-16 overflow-hidden">
