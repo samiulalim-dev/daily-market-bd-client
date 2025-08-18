@@ -44,7 +44,7 @@ const BestSellers = () => {
       );
     } else {
       return (
-        <span className="bg-green-700 text-white space-x-4 px-8 py-4 rounded-2xl text-md font-semibold">
+        <span className="bg-green-700 text-white space-x-4 px-2 sm:px-8 py-4 rounded-2xl text-md font-semibold">
           <span>{days}d</span>
           <span>:</span>
           <span>{hours}h</span>
@@ -64,8 +64,8 @@ const BestSellers = () => {
   return (
     <section className="w-11/12 mx-auto py-12">
       {/* Title + View All */}
-      <div className="flex items-center justify-between mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-green-700">
+      <div className="flex items-center flex-col sm:flex-row sm:justify-between mb-8">
+        <h2 className="text-3xl md:text-4xl text-center sm:text-start mb-4 sm:mb-0 font-bold text-green-700">
           Our Best Sellers Products
         </h2>
         <Link

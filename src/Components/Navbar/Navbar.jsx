@@ -7,6 +7,7 @@ import {
   FaBell,
   FaUser,
   FaCog,
+  FaInfoCircle,
 } from "react-icons/fa";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
@@ -23,7 +24,7 @@ const NavItem = ({ to, icon, label, onClick }) => (
     to={to}
     onClick={onClick}
     className={({ isActive }) =>
-      `flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
+      `flex items-center gap-1 px-3 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
         isActive
           ? "bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
           : "text-gray-700 dark:text-gray-300 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-900/20"
@@ -50,18 +51,23 @@ const Navbar = () => {
 
   // Navigation items
   const navigationItems = [
-    { to: "/", label: "Home", icon: <FaHome className="w-4 h-4" /> },
+    { to: "/", label: "Home", icon: <FaHome className="w-3 h-3" /> },
     {
       to: "/allProducts",
       label: "All Products",
-      icon: <FaBox className="w-4 h-4" />,
+      icon: <FaBox className="w-3 h-3" />,
+    },
+    {
+      to: "/aboutUs",
+      label: "About Us",
+      icon: <FaInfoCircle className="w-3 h-3" />,
     },
     ...(user
       ? [
           {
             to: "/dashboard",
             label: "Dashboard",
-            icon: <FaTachometerAlt className="w-4 h-4" />,
+            icon: <FaTachometerAlt className="w-3 h-3" />,
           },
         ]
       : []),
@@ -223,110 +229,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// {/* <div className="bg-base-100 shadow-sm">
-//   {" "}
-//   <div className="navbar w-11/12 mx-auto ">
-//     {" "}
-//     <div className="navbar-start">
-//       {" "}
-//       <div className="dropdown">
-//         {" "}
-//         <div
-//           tabIndex={0}
-//           role="button"
-//           className="btn  pl-0 pr-8 md:pr-4  btn-ghost lg:hidden"
-//         >
-//           {" "}
-//           <svg
-//             xmlns="http://www.w3.org/2000/svg"
-//             className="h-5 w-5"
-//             fill="none"
-//             viewBox="0 0 24 24"
-//             stroke="currentColor"
-//           >
-//             {" "}
-//             <path
-//               strokeLinecap="round"
-//               strokeLinejoin="round"
-//               strokeWidth="2"
-//               d="M4 6h16M4 12h8m-8 6h16"
-//             />{" "}
-//           </svg>{" "}
-//         </div>{" "}
-//         <ul
-//           tabIndex={0}
-//           className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-//         >
-//           {" "}
-//           {sharedNavbar}{" "}
-//         </ul>{" "}
-//       </div>{" "}
-//       <div>
-//         {" "}
-//         <Logo></Logo>{" "}
-//       </div>{" "}
-//     </div>{" "}
-//     <div className="navbar-center hidden lg:flex">
-//       {" "}
-//       <ul className="menu menu-horizontal px-1">{sharedNavbar}</ul>{" "}
-//     </div>{" "}
-//     <div className="navbar-end">
-//       {" "}
-//       {user ? (
-//         <div>
-//           {" "}
-//           <div className="dropdown block sm:hidden dropdown-end">
-//             {" "}
-//             <div
-//               tabIndex={0}
-//               role="button"
-//               className="btn btn-ghost btn-circle avatar"
-//             >
-//               {" "}
-//               <div className="w-10 rounded-full">
-//                 {" "}
-//                 <img
-//                   alt="Tailwind CSS Navbar component"
-//                   src={user?.photoURL || "/avatar.png"}
-//                 />{" "}
-//               </div>{" "}
-//             </div>{" "}
-//             <ul
-//               tabIndex={0}
-//               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-//             >
-//               {" "}
-//               <li>
-//                 {" "}
-//                 <button
-//                   onClick={handleLogOut}
-//                   className="btn btn-primary text-white flex items-center gap-2"
-//                 >
-//                   {" "}
-//                   <ImExit className="text-white text-lg" /> Log Out{" "}
-//                 </button>{" "}
-//               </li>{" "}
-//             </ul>{" "}
-//           </div>{" "}
-//           <div className="sm:flex hidden  items-center gap-3">
-//             {" "}
-//             {/* Avatar /}                 <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-600">                   <img                     src={user?.photoURL || "/avatar.png"} // fallback image                     alt="User Avatar"                     className="w-full h-full object-cover"                   />                 </div>                  {/ Logout Button */}{" "}
-//             <button
-//               onClick={handleLogOut}
-//               className="btn btn-primary text-white flex items-center gap-2"
-//             >
-//               {" "}
-//               <ImExit className="text-white text-lg" /> Log Out{" "}
-//             </button>{" "}
-//           </div>{" "}
-//         </div>
-//       ) : (
-//         <Link to="/logIn" className="btn btn-primary text-white">
-//           {" "}
-//           <FaSignInAlt className="text-white" /> Log in{" "}
-//         </Link>
-//       )}{" "}
-//     </div>{" "}
-//   </div>{" "}
-// </div>; */}

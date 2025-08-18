@@ -24,6 +24,7 @@ import StripeCheckoutPage from "../Pages/StripeCheckoutPage/StripeCheckoutPage";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import AllOrders from "../Pages/Dashboard/AllOrders/AllOrders";
 import TermsAndConditions from "../Components/TermsAndConditions/TermsAndConditions";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
       {
         path: "terms",
         Component: TermsAndConditions,
+      },
+      {
+        path: "aboutUs",
+        Component: AboutUs,
       },
       {
         path: "/checkout/:id",

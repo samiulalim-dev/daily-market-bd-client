@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import vegetable from "../../assets/vegetable.png";
 const Newsletter = () => {
   return (
-    <section className="bg-gradient-to-r from-green-50 to-green-100 py-16">
+    <section className="bg-gradient-to-r from-green-50 to-green-100 py-16 overflow-hidden">
       <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         {/* Left Content */}
         <motion.div

@@ -15,7 +15,7 @@ const Logo = () => {
 
       {/* Text */}
       <div className="flex flex-col items-start">
-        <h1 className="text-md md:text-3xl font-bold font-poppins leading-none">
+        <h1 className="text-md md:text-[27px] font-bold font-poppins leading-none">
           <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-green-700 bg-clip-text text-transparent transition-all duration-300 group-hover:from-green-500 group-hover:via-emerald-500 group-hover:to-green-600">
             DailyMarket
           </span>
