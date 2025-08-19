@@ -109,6 +109,7 @@ const DashboardOverview = () => {
                 title="Total Users"
                 value={statObject.users || 0}
                 buttonText="View All Users"
+                buttonLink="/dashboard/home"
                 icon={<FaUsers className="text-blue-600 w-8 h-8" />}
                 description={
                   <span className="flex items-center text-lg text-gray-700">
@@ -120,6 +121,7 @@ const DashboardOverview = () => {
               <StatCard
                 title="Total Products"
                 buttonText="View All Products"
+                buttonLink="/dashboard/all-products"
                 value={statObject.products || 0}
                 icon={<FaBoxOpen className="text-[#117a0b] w-8 h-8" />}
                 description={
@@ -132,6 +134,7 @@ const DashboardOverview = () => {
               <StatCard
                 title="Total Ads"
                 buttonText="View All Ads"
+                buttonLink="/dashboard/all-ads"
                 value={statObject.ads || 0}
                 icon={<FaAd className="text-yellow-500 w-8 h-8" />}
                 description={
@@ -144,6 +147,7 @@ const DashboardOverview = () => {
               <StatCard
                 title="Total Orders"
                 buttonText="View All Orders"
+                buttonLink="/dashboard/all-orders"
                 value={statObject.orders || 0}
                 icon={<FaShoppingCart className="text-red-500 w-8 h-8" />}
                 description={
@@ -195,7 +199,14 @@ const DashboardOverview = () => {
 };
 
 // Reusable Stat Card
-const StatCard = ({ title, value, icon, description, buttonText }) => (
+const StatCard = ({
+  title,
+  value,
+  icon,
+  description,
+  buttonText,
+  buttonLink,
+}) => (
   <div className="rounded-xl bg-gradient-to-t from-emerald-500 to-teal-600 shadow p-6 flex flex-col items-center justify-between gap-4 hover:scale-105 transition-transform duration-300">
     <div className=" flex items-center gap-4 flex-col">
       {/* Icon */}
@@ -212,8 +223,11 @@ const StatCard = ({ title, value, icon, description, buttonText }) => (
     </div>
 
     {/* Button */}
-    {buttonText && (
-      <Link className="px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 border-2 border-white text-white hover:bg-green-700 hover:text-white hover:border-none  ">
+    {buttonText && buttonLink && (
+      <Link
+        to={buttonLink}
+        className="px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 border-2 border-white text-white hover:bg-green-700 hover:text-white hover:border-none  "
+      >
         {buttonText}
       </Link>
     )}
