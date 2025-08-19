@@ -25,6 +25,7 @@ import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import AllOrders from "../Pages/Dashboard/AllOrders/AllOrders";
 import TermsAndConditions from "../Components/TermsAndConditions/TermsAndConditions";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import DashboardOverview from "../Pages/Dashboard/DashboardOverview/DashboardOverview";
 
 export const router = createBrowserRouter([
   {
@@ -89,6 +90,10 @@ export const router = createBrowserRouter([
       {
         path: "home",
         Component: DashboardHome,
+      },
+      {
+        path: "overview",
+        Component: DashboardOverview,
       },
       {
         path: "add-products",

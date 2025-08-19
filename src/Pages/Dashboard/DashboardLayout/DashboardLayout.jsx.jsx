@@ -59,6 +59,16 @@ const DashboardLayout = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "bg-white/30  shadow-lg" : "text-white"
+              }
+              to="/dashboard/overview"
+            >
+              <FaChartLine className="inline mr-2" /> Overview
+            </NavLink>
+          </li>
+          <li>
             {" "}
             <NavLink
               to="/dashboard/watchList"
@@ -94,6 +104,16 @@ const DashboardLayout = () => {
               }
             >
               <FaBox className="inline mr-2" /> My Products
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "bg-white/30  shadow-lg" : "text-white"
+              }
+              to="/dashboard/overview"
+            >
+              <FaChartLine className="inline mr-2" /> Overview
             </NavLink>
           </li>
           <li>
@@ -141,6 +161,16 @@ const DashboardLayout = () => {
               }
             >
               <FaUsers className="inline mr-2" /> All Users
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "bg-white/30  shadow-lg" : "text-white"
+              }
+              to="/dashboard/overview"
+            >
+              <FaChartLine className="inline mr-2" /> Overview
             </NavLink>
           </li>
           <li>
@@ -279,7 +309,8 @@ const DashboardLayout = () => {
                 className="drawer-overlay"
               ></label>
 
-              <ul className="menu  bg-gradient-to-t from-emerald-500 to-teal-600  shadow-lg min-h-full md:w-80 p-4">
+              <ul className="menu mt-12 bg-gradient-to-t from-emerald-500 to-teal-600  shadow-lg min-h-full md:w-80 p-4">
+                <UserProfile></UserProfile>
                 {/* Sidebar content here */}
                 {dashboardNavbar}
               </ul>
