@@ -22,12 +22,10 @@ import {
   FaAd,
   FaShoppingCart,
   FaEye,
-  FaRegEye,
-  FaClipboardCheck,
+  FaDollarSign,
   FaBullhorn,
-  FaBoxes,
-  FaUserCheck,
 } from "react-icons/fa";
+
 import { Link } from "react-router";
 const DashboardOverview = () => {
   const axiosSecure = useAxiosSecure();
@@ -71,16 +69,48 @@ const DashboardOverview = () => {
 
         {/* Vendor Stats */}
         {role === "vendor" && (
-          <>
-            <StatCard
-              title="My Products"
-              value={statObject.totalProducts || 0}
-            />
-            <StatCard
-              title="Total Revenue"
-              value={`$${statObject.totalRevenue || 0}`}
-            />
-          </>
+          <div className="grid grid-cols-1  w-11/12 mx-auto md:grid-cols-3 gap-6">
+            <>
+              {/* My Products */}
+              <StatCard
+                title="My Products"
+                buttonText="View All Products"
+                buttonLink="/dashboard/home"
+                value={statObject.totalProducts || 0}
+                icon={<FaBoxOpen className="text-blue-600 w-8 h-8" />}
+                description={
+                  <span className="flex items-center text-gray-700 text-sm">
+                    Total products you have added and are currently managing
+                  </span>
+                }
+              />
+              {/* Total Advertisements */}
+              <StatCard
+                title="Total Advertisements"
+                buttonText="View All Ads"
+                buttonLink="/dashboard/my-advertisements"
+                value={statObject.totalAdvertisements || 0}
+                icon={<FaBullhorn className="text-orange-500 w-8 h-8" />}
+                description={
+                  <span className="flex items-center text-gray-700 text-sm">
+                    Number of active advertisements promoting your products
+                  </span>
+                }
+              />
+              {/* Total Revenue */}
+              <StatCard
+                title="Total Revenue"
+                value={`$${statObject.totalRevenue || 0}`}
+                icon={<FaDollarSign className="text-green-600 w-8 h-8" />}
+                description={
+                  <span className="flex items-center text-gray-700 text-sm">
+                    Total income generated from user purchases across all
+                    products
+                  </span>
+                }
+              />
+            </>
+          </div>
         )}
 
         {/* Admin Stats */}
@@ -162,7 +192,7 @@ const DashboardOverview = () => {
       </div>
       {/* Chart */}
       <div className=" bg-white shadow md:w-11/12 md:mx-auto rounded-xl md:p-6 mx-1">
-        <h3 className="text-lg font-semibold mb-4 text-center">
+        <h3 className="text-lg text-black font-semibold mb-4 text-center">
           Statistics Chart
         </h3>
         {chartData.length > 0 ? (
@@ -191,7 +221,9 @@ const DashboardOverview = () => {
             </AreaChart>
           </ResponsiveContainer>
         ) : (
-          <Loading></Loading>
+          <p className="text-center text-gray-500">
+            No data available for chart
+          </p>
         )}
       </div>
     </div>

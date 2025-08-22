@@ -71,7 +71,7 @@ const Login = () => {
     <div className="my-8 flex items-center justify-center px-4 ">
       <div className="card bg-base-100 my-10 w-full max-w-sm mx-auto shadow-2xl">
         <div className="card-body">
-          <h1 className="text-center text-2xl font-bold flex items-center justify-center gap-2 text-primary">
+          <h1 className="text-center text-2xl text-green-700 font-bold flex items-center justify-center gap-2">
             <FaSignInAlt /> Please Login!
           </h1>
 
@@ -130,7 +130,7 @@ const Login = () => {
             {/* Submit */}
             <button
               type="submit"
-              className="px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
+              className="px-4 w-full py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
             >
               Login
             </button>
