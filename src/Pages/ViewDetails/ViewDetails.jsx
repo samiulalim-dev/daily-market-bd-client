@@ -83,7 +83,10 @@ const ViewDetails = () => {
 
         {role === "user" && (
           <div className="space-x-4">
-            <button className="btn btn-primary text-white" onClick={handleBuy}>
+            <button
+              className="px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
+              onClick={handleBuy}
+            >
               Buy Product
             </button>
             <button

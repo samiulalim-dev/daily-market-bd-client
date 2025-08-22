@@ -10,15 +10,25 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from "recharts";
+import Loading from "../../../Shared/Logo/Loading/Loading";
 
 const PriceTrends = () => {
   const [trendData, setTrendData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
     axios
       .get("https://daily-market-bd-server.vercel.app/api/price-trends")
-      .then((res) => setTrendData(res.data))
+      .then((res) => {
+        setTrendData(res.data);
+
+        // 👉 first product auto select
+        if (res.data.length > 0) {
+          setSelectedItem(res.data[0].itemName);
+        }
+        setLoading(false);
+      })
       .catch((err) => console.error("Error fetching price trends:", err));
   }, []);
 
@@ -27,6 +37,9 @@ const PriceTrends = () => {
   const filteredData = selectedItem
     ? trendData.filter((item) => item.itemName === selectedItem)
     : [];
+  if (loading) {
+    return <Loading></Loading>;
+  }
 
   return (
     <div className="p-6">
@@ -42,8 +55,8 @@ const PriceTrends = () => {
             onClick={() => setSelectedItem(item)}
             className={`px-4 py-2 cursor-pointer rounded-full border ${
               selectedItem === item
-                ? "bg-green-600 text-white"
-                : "bg-white text-gray-800 hover:bg-green-100"
+                ? "bg-gradient-to-r from-emerald-500 to-teal-600 text-white"
+                : "border border-green-600 text-gray-800 hover:bg-gradient-to-r from-emerald-500 to-teal-600 hover:text-white"
             }`}
           >
             {item}
@@ -96,7 +109,7 @@ const PriceTrends = () => {
           </div>
         ))
       ) : (
-        <p className="text-gray-500">👈 Select a product</p>
+        <p className="text-gray-500">☝ Select a product</p>
       )}
     </div>
   );

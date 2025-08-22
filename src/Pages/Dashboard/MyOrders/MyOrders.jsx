@@ -45,7 +45,7 @@ const MyOrders = () => {
                 <td>{new Date(order.buyDate).toLocaleDateString()}</td>
                 <td>
                   <Link
-                    className=" btn btn-primary text-white"
+                    className=" px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white"
                     to={`/products/${order.productId}`}
                   >
                     View Details

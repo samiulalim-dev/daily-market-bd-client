@@ -70,7 +70,7 @@ const MyAdvertisements = () => {
           </thead>
           <tbody>
             {myAds.length === 0 ? (
-              <p className="  text-xl py-2">You have no ads.</p>
+              <td className="  text-xl py-2">You have no ads.</td>
             ) : (
               myAds.map((ad) => (
                 <tr key={ad._id} className="border-b hover:bg-gray-50">

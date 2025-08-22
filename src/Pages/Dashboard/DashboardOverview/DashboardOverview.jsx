@@ -24,6 +24,8 @@ import {
   FaEye,
   FaDollarSign,
   FaBullhorn,
+  FaShoppingBag,
+  FaStar,
 } from "react-icons/fa";
 
 import { Link } from "react-router";
@@ -61,10 +63,49 @@ const DashboardOverview = () => {
       <div>
         {/* User Stats */}
         {role === "user" && (
-          <>
-            <StatCard title="My Orders" value={statObject.orders || 0} />
-            <StatCard title="My Watchlist" value={statObject.watchlist || 0} />
-          </>
+          <div className="grid grid-cols-1  w-11/12 mx-auto md:grid-cols-3 gap-6">
+            <>
+              {/* My Orders */}
+              <StatCard
+                title="My Orders"
+                buttonText="View All Orders"
+                buttonLink="/dashboard/orders"
+                value={statObject.orders || 0}
+                icon={<FaShoppingBag className="text-[#2563eb] w-8 h-8" />}
+                description={
+                  <span className="flex items-center text-gray-700 text-sm">
+                    Total orders you have placed so far
+                  </span>
+                }
+              />
+
+              {/* My Watchlist */}
+              <StatCard
+                title="My Watchlist"
+                buttonText="My Watchlist"
+                buttonLink="/dashboard/watchlist"
+                value={statObject.watchlist || 0}
+                icon={<FaEye className="text-[#9333ea] w-8 h-8" />}
+                description={
+                  <span className="flex items-center text-gray-700 text-sm">
+                    Items you saved to monitor for future purchase
+                  </span>
+                }
+              />
+
+              {/* My Reviews */}
+              <StatCard
+                title="My Reviews"
+                value={statObject.review || 0}
+                icon={<FaStar className="text-[#f59e0b] w-8 h-8" />}
+                description={
+                  <span className="flex items-center text-gray-700 text-sm">
+                    Feedback and ratings you provided on products
+                  </span>
+                }
+              />
+            </>
+          </div>
         )}
 
         {/* Vendor Stats */}
